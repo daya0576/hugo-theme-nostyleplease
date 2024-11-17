@@ -8,10 +8,14 @@
             </div>
         </main>
     </body>
+    
     {{- if .Params.custom_js -}}
         {{- range .Params.custom_js -}}
             {{ $js := resources.Get (print "js/" . ".js") }}
             <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
         {{- end -}}
     {{- end -}}
+
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="4897b887-cb78-4d7b-bd99-cc2c648825c7"></script>
+
 </html>
