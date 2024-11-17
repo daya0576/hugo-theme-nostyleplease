@@ -5,7 +5,7 @@ title = "thoughts"
   limit = 8
   show_more = true
   show_more_text = "more.."
-  show_more_url = "posts"
+  show_more_url = "archives"
 
 [[entries]]
 title = "categories"
@@ -20,23 +20,22 @@ title = "categories"
   '''
 
 [[entries]]
-title = "info"
-
-  [[entries.entries]]
-  title = "github"
-  url = "https://github.com/daya0576/"
-  [[entries.entries]]
-  title = "rss"
-  url = "atom.xml"
+title = "links"
+entries = [
+  { title= '<a href="https://github.com/daya0576/" target="_blank">github</a>' },
+  { title= '<a href="mailto:daya0576@gmail.com" target="_blank">email</a>' },
+  { title= '<a href="atom.xml" target="_blank">rss</a>' },
+]
 
 [[entries]]
 title = "friends"
-
-  [[entries.entries]]
-  title = "with subitems"
-
-[[entries]]
-title = "PRO TIP"
 entries = [
-   { title = "to edit this menu, edit data/menu.toml file" }
+    { title = "laike9m's blog", url="https://laike9m.com/" },
+    { title = "Hypers 陈惠超 超人~", url="https://chenhuichao.com/" },
+    { title = "宇宙湾", url="https://yuzhouwan.com/" },
+    { title = "肥仔同事 laixintao", url="https://www.kawabangga.com" },
+    { title = "一只会Think的Zhu", url="https://www.zhuguocheng29.cn/" },
+    { title = "Li Jingying's Blog", url="https://lijingying91.github.io/" },
+    { title = "喜欢跑步与编程的 yihong0618", url="https://yihong.run/" },
   ]
+

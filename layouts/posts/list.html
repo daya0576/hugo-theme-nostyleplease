@@ -8,15 +8,13 @@
 <!-- divide post list by year  -->
 {{ if  .Site.Params.theme_config.isListGroupByDate  }}
     {{ range .Pages.GroupByDate "2006" }}
-        {{ $year := .Key }}
-        {{ if ge $year 2000 }}
-            <h2>{{ .Key }}</h2>
-            <ul>
-                {{ range .Pages }}
-                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                {{ end }}
-            </ul>
-        {{ end }}
+    <h2>{{ .Key }}</h2>
+    <ul>
+    {{ range .Pages }}
+        <li><span>{{ .Date.Format "01-02" }}</span> 
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
     {{ end }}
 {{ else }}
     {{ partial "post_list.html" (dict "context" . "section" .Section)}}
