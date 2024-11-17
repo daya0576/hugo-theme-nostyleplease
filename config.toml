@@ -33,4 +33,13 @@
     appearance = "auto"
     back_home_text = ".."
     date_format = "2006-01-02"
-    isListGroupByDate = false
+    isListGroupByDate = true
+
+[outputs]
+home = ["HTML", "RSS"]
+page = ["HTML", "RSS"]
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss+xml"
+baseName = "atom"

@@ -1,48 +1,39 @@
 [[entries]]
+title = "thoughts"
+
+  [entries.post_list]
+  limit = 8
+  show_more = true
+  show_more_text = "more.."
+  show_more_url = "posts"
+
+[[entries]]
+title = "categories"
+
+  [[entries.entries]]
+  title = '''
+  <a href="/categories/SRE/" target="_blank">SRE</a> /
+  <a href="/categories/PYTHON/" target="_blank">PYTHON</a> /
+  <a href="/categories/JAVA/" target="_blank">JAVA</a> / 
+  <a href="/categories/智能家居/" target="_blank">智能家居</a> /
+  <a href="/categories/个人相关/" target="_blank">个人相关</a>
+  '''
+
+[[entries]]
 title = "info"
 
   [[entries.entries]]
-  title = "a (nearly) no-CSS, fast, minimalist Hugo theme ported from <a href='https://github.com/riggraz/no-style-please'>riggraz/no-style-please</a>."
-
+  title = "github"
+  url = "https://github.com/daya0576/"
   [[entries.entries]]
-  title = "github repo"
-  url = "https://github.com/hanwenguo/hugo-theme-nostyleplease"
-
-
-[[entries]]
-title = "all posts"
-
-  [entries.post_list]
-  limit = 5
-  show_more = true
-  show_more_text = "See archive..."
-  show_more_url = "posts"
+  title = "rss"
+  url = "atom.xml"
 
 [[entries]]
-title = "posts by category"
-
-  [entries.post_list]
-  section = "posts"
-  show_more = true
-  show_more_text = "See more posts..."
-  show_more_url = "posts"
-
-[[entries]]
-title = "rss"
-url = "index.xml"
-
-[[entries]]
-title = "another list"
+title = "friends"
 
   [[entries.entries]]
   title = "with subitems"
-
-    [[entries.entries.entries]]
-    title = "with subsubitems"
-
-    [[entries.entries.entries]]
-    title = "example page"
-    url = "about"
 
 [[entries]]
 title = "PRO TIP"
