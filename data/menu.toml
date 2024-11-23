@@ -12,9 +12,9 @@ title = "categories"
 
   [[entries.entries]]
   title = '''
-  <a href="/categories/SRE/" target="_blank">SRE</a> /
-  <a href="/categories/PYTHON/" target="_blank">PYTHON</a> /
-  <a href="/categories/JAVA/" target="_blank">JAVA</a> / 
+  <a href="/categories/sre/" target="_blank">SRE</a> /
+  <a href="/categories/python/" target="_blank">PYTHON</a> /
+  <a href="/categories/java/" target="_blank">JAVA</a> / 
   <a href="/categories/智能家居/" target="_blank">智能家居</a> /
   <a href="/categories/个人相关/" target="_blank">个人相关</a>
   '''
