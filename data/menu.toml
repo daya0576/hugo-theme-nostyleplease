@@ -2,7 +2,7 @@
 title = "thoughts"
 
   [entries.post_list]
-  limit = 8
+  limit = 10
   show_more = true
   show_more_text = "more.."
   show_more_url = "archives"
@@ -12,6 +12,7 @@ title = "categories"
 
   [[entries.entries]]
   title = '''
+  <a href="/categories/独立开发/" target="_blank">独立开发</a> /
   <a href="/categories/sre/" target="_blank">SRE</a> /
   <a href="/categories/python/" target="_blank">PYTHON</a> /
   <a href="/categories/java/" target="_blank">JAVA</a> / 
