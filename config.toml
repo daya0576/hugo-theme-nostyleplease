@@ -33,7 +33,7 @@
   [params.theme_config]
     appearance = "auto"
     back_home_text = ".."
-    date_format = "2006-01-02"
+    date_format = "01-02"
     isListGroupByDate = true
 
 [outputs]
