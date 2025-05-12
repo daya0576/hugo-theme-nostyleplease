@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ $.Site.LanguageCode }}">
     {{- partial "head.html" . -}}
+    
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
         <main class="page-content" aria-label="Content">
             <div class="w">
+                <header><h1>{{ $.Site.Title }}</h1></header>
+                {{ partial "navigator.html" }}
                 {{- block "main" . }}{{- end }}
             </div>
         </main>
@@ -15,7 +18,5 @@
             <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
         {{- end -}}
     {{- end -}}
-
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="4897b887-cb78-4d7b-bd99-cc2c648825c7"></script>
 
 </html>

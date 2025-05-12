@@ -1,35 +1,38 @@
 [[entries]]
-title = "thoughts"
+title = "生活"
 
   [entries.post_list]
-  limit = 10
+  limit = 8
   show_more = true
-  show_more_text = "more.."
+  show_more_text = "更多.."
   show_more_url = "archives"
+  categories = ["个人相关", "独立开发", "智能家居"]
 
 [[entries]]
-title = "categories"
+title = "编程"
 
-  [[entries.entries]]
-  title = '''
-  <a href="/categories/独立开发/" target="_blank">独立开发</a> /
-  <a href="/categories/sre/" target="_blank">SRE</a> /
-  <a href="/categories/python/" target="_blank">PYTHON</a> /
-  <a href="/categories/java/" target="_blank">JAVA</a> / 
-  <a href="/categories/智能家居/" target="_blank">智能家居</a> /
-  <a href="/categories/个人相关/" target="_blank">个人相关</a>
-  '''
+  [entries.post_list]
+  limit = 8
+  show_more = true
+  show_more_text = "更多.."
+  show_more_url = "archives"
+  categories = ["PYTHON", "JAVA", "SRE", "python", "java", "sre"]
+
+# [[entries]]
+# title = "categories"
+
+#   [[entries.entries]]
+#   title = '''
+#   <a href="/categories/独立开发/" target="_blank">独立开发</a> /
+#   <a href="/categories/sre/" target="_blank">SRE</a> /
+#   <a href="/categories/python/" target="_blank">PYTHON</a> /
+#   <a href="/categories/java/" target="_blank">JAVA</a> / 
+#   <a href="/categories/智能家居/" target="_blank">智能家居</a> /
+#   <a href="/categories/个人相关/" target="_blank">个人相关</a>
+#   '''
 
 [[entries]]
-title = "links"
-entries = [
-  { title= '<a href="https://github.com/daya0576/" target="_blank">github</a>' },
-  { title= '<a href="mailto:daya0576@gmail.com" target="_blank">email</a>' },
-  { title= '<a href="atom.xml" target="_blank">rss</a>' },
-]
-
-[[entries]]
-title = "friends"
+title = "友链"
 entries = [
     { title = "laike9m's blog", url="https://laike9m.com/" },
     { title = "Hypers 陈惠超 超人~", url="https://chenhuichao.com/" },

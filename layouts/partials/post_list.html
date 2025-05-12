@@ -1,18 +1,23 @@
 {{- $posts := "" -}}
 
-{{- if .section -}}
-    {{- $posts = (where site.RegularPages "Section" .section) -}}
+{{- if .categories -}}
+    {{- $posts = (where site.RegularPages "Params.categories" "intersect" .categories) -}}
 {{- else -}}
     {{- if (eq .context.Kind "taxonomy") -}}
         {{- $posts = .context.Pages -}}
     {{- else -}}
         {{- if (eq .context.Kind "term") -}}
             {{- $posts = .context.Data.Pages -}}
-	{{- else -}}
-            {{- $posts = site.RegularPages }}
-	{{- end -}}
+    {{- else -}}
+              {{- $posts = site.RegularPages }}
     {{- end -}}
 {{- end -}}
+
+{{ $slice := slice "sre" "SRE" }}
+{{ $posts := where site.RegularPages "Params.categories" "intersect" .categories }}
+
+{{- end -}}
+
 
 {{- $limit_exceeded:= "" -}}
 {{- if (and .limit (gt (len $posts) .limit)) -}}

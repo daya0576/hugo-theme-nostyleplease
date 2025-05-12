@@ -34,7 +34,6 @@
     appearance = "auto"
     back_home_text = ".."
     date_format = "01-02"
-    isListGroupByDate = true
 
 [outputs]
 home = ["HTML", "RSS"]

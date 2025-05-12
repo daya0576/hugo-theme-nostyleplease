@@ -1,5 +1,5 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
+@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
   background-color: $--bg-color;
 
   color: $--primary-text-color;
@@ -7,7 +7,7 @@
   a {
     color: $--link-color;
     text-decoration: none;
-    &:visited { color: $--visited-link-color; }
+    // &:visited { color: $--visited-link-color; }
     &:hover { text-decoration: underline; }
   }
 
@@ -24,6 +24,10 @@
   code:not(pre > code) {
     background-color: $--primary-text-color;
     color: $--bg-color;
+  }
+
+  pre {
+    background: $--pure-bg-color;
   }
 
   *:target {
@@ -43,13 +47,13 @@
   figcaption { color: $--secondary-text-color; }
 }
 
-// @mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
+// @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(#1D1D1D, #ffffff, #000000, #79a8ff, #f78fe7, #2f3849); // modus-vivendi
+  @include theme(#1d1d1d, #000, #ffffff, #000000, #79a8ff, #f78fe7, #2f3849); // modus-vivendi
 }
 
 @mixin light-appearance {
-  @include theme(#ffffff, #000000, #595959, #3548cf, #8f0075, #dae5ec); // modus-operandi
+  @include theme(#ffffff, #eee, #000000, #595959, #3548cf, #8f0075, #dae5ec); // modus-operandi
 }
 
 body[a="dark"] { @include dark-appearance; }
@@ -76,9 +80,11 @@ body {
   overflow-wrap: break-word;
 }
 
-.post-meta { text-align: right; }
+.post-meta { 
+  text-align: left; 
+}
 
-h2, h3, h4, h5, h6 { margin-top: 1rem; }
+h1, h2, h3, h4, h5, h6 { margin: 1rem 0; }
 
 hr { margin: 2rem 0; }
 
@@ -88,7 +94,7 @@ li { margin: 0.4rem 0; }
 
 .w {
   max-width: 640px;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   margin: 0 auto;
 }
 
@@ -105,7 +111,6 @@ hr {
 }
 
 pre {
-  background: black;
   padding: 1em;
   overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
 }
@@ -153,4 +158,8 @@ figcaption {
 .video-shortcode {
   max-height: 600px;
   max-width: 600px;
+}
+
+nav a {
+  margin-right: 8px;
 }
