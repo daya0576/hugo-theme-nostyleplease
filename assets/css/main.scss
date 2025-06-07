@@ -85,7 +85,9 @@ body {
   font-style: italic;
 }
 
+
 h1, h2, h3, h4, h5, h6 { margin: 1rem 0; }
+h1, h2 { margin: 2rem 0 1rem 0; }
 
 hr { margin: 2rem 0; }
 
@@ -94,7 +96,7 @@ p { margin: 1rem 0; }
 li { margin: 0.4rem 0; }
 
 .w {
-  max-width: 640px;
+  max-width: 700px;
   padding: 1rem 1rem;
   margin: 0 auto;
 }
@@ -163,4 +165,9 @@ figcaption {
 
 nav a {
   margin-right: 8px;
+}
+
+body article details {
+  margin-top: 1rem;
+  padding: 1rem;
 }

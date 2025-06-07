@@ -7,9 +7,11 @@
       {{ partial "post-date.html" .Date }}
     </div>
   </header>
+{{- partial "toc.html" . -}}
   <div class="post-content">
     {{ .Content }}
   </div>
 </article>
 
 {{ partial "comments.html" }} {{ end }}
+
