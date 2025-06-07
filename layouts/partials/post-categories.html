@@ -1,0 +1,10 @@
+{{ with . }}
+  <span class="post-categories">
+    {{- $sep := "" -}}
+    {{- range . -}}
+      {{- printf "%s" $sep -}}
+      <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" rel="category">{{ . }}</a>
+      {{- $sep = " / " -}}
+    {{- end -}}
+  </span>
+{{ end }}
