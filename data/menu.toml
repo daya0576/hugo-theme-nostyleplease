@@ -1,25 +1,5 @@
-[[entries]]
-title = "生活"
-
-  [entries.post_list]
-  limit = 8
-  show_more = true
-  show_more_text = "更多.."
-  show_more_url = "archives"
-  categories = ["个人相关", "独立开发", "智能家居"]
-
-[[entries]]
-title = "编程"
-
-  [entries.post_list]
-  limit = 8
-  show_more = true
-  show_more_text = "更多.."
-  show_more_url = "archives"
-  categories = ["PYTHON", "JAVA", "SRE", "python", "java", "sre"]
-
 # [[entries]]
-# title = "categories"
+# title = "分类"
 
 #   [[entries.entries]]
 #   title = '''
@@ -30,6 +10,27 @@ title = "编程"
 #   <a href="/categories/智能家居/" target="_blank">智能家居</a> /
 #   <a href="/categories/个人相关/" target="_blank">个人相关</a>
 #   '''
+
+[[entries]]
+title = "生活"
+
+  [entries.post_list]
+  limit = 12
+  show_more = true
+  show_more_text = "更多.."
+  show_more_url = "archives"
+  categories = ["个人相关", "独立开发", "智能家居", "育儿", "读书"]
+
+[[entries]]
+title = "编程"
+
+  [entries.post_list]
+  limit = 12
+  show_more = true
+  show_more_text = "更多.."
+  show_more_url = "/categories/sre+python"
+  categories = ["PYTHON", "JAVA", "SRE", "python", "java", "sre"]
+
 
 [[entries]]
 title = "友链"
