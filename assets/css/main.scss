@@ -79,16 +79,6 @@ body {
   min-height: 100%;
   overflow-wrap: break-word;
 }
-@media screen and (max-width: 1024px) {
-  body {
-    font-size: 15px;
-  }
-}
-@media screen and (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-}
 
 .post-meta { 
   text-align: left; 
@@ -182,3 +172,18 @@ body article details {
   margin-top: 1rem;
   padding: 1rem;
 }
+
+body article {
+  font-size: 16px;
+}
+@media screen and (max-width: 1024px) {
+  body article {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  body article {
+    font-size: 14px;
+  }
+}
+
