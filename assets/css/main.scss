@@ -79,6 +79,16 @@ body {
   min-height: 100%;
   overflow-wrap: break-word;
 }
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
 
 .post-meta { 
   text-align: left; 
