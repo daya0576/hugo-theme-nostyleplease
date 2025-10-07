@@ -3,6 +3,7 @@
 <header>
     <h1>{{ $.Site.Title }}</h1>
 </header>
+
 {{ partial "navigator.html" }}
 
 {{ partial "menu_item.html" (dict "context" . "collection" $.Site.Data.menu.entries) }}

@@ -3,13 +3,24 @@
 
 #   [[entries.entries]]
 #   title = '''
-#   <a href="/categories/独立开发/" target="_blank">独立开发</a> /
 #   <a href="/categories/sre/" target="_blank">SRE</a> /
 #   <a href="/categories/python/" target="_blank">PYTHON</a> /
 #   <a href="/categories/java/" target="_blank">JAVA</a> / 
 #   <a href="/categories/智能家居/" target="_blank">智能家居</a> /
 #   <a href="/categories/个人相关/" target="_blank">个人相关</a>
 #   '''
+
+
+[[entries]]
+title = "编程"
+
+  [entries.post_list]
+  limit = 10
+  show_more = true
+  show_more_text = "更多.."
+  show_more_url = "archives"
+  categories = ["PYTHON", "JAVA", "SRE", "编程"]
+
 
 [[entries]]
 title = "生活"
@@ -20,16 +31,6 @@ title = "生活"
   show_more_text = "更多.."
   show_more_url = "archives"
   categories = ["个人相关", "独立开发", "智能家居", "育儿", "读书", "派派"]
-
-[[entries]]
-title = "编程"
-
-  [entries.post_list]
-  limit = 10
-  show_more = true
-  show_more_text = "更多.."
-  show_more_url = "/categories/sre+python"
-  categories = ["PYTHON", "JAVA", "SRE", "python", "java", "sre", "编程"]
 
 
 [[entries]]
