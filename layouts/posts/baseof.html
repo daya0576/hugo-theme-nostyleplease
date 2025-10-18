@@ -5,8 +5,6 @@
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
         <main class="page-content" aria-label="Content">
             <div class="w">
-                <header><h1>{{ $.Site.Title }}</h1></header>
-                {{ partial "navigator.html" }}
                 {{- block "main" . }}{{- end }}
             </div>
         </main>

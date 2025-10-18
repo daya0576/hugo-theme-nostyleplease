@@ -1,20 +1,21 @@
 {{ define "main" }}
-
-<header>
-    <h1>{{ $.Site.Title }}</h1>
-    {{ partial "navigator.html" }}
-</header>
+{{ partial "back_link.html" .}}
 
 <article>
-    
+  <header>
     <h1>{{ .Title }}</h1>
-
-    {{ if .Params.toc }}
-        <aside {{ if .Params.tocBorder }} class="toc" {{ end }}>
-            {{ .TableOfContents }}
-        </aside>
-    {{ end }}
-
+  </header>
+  
+  {{- partial "toc.html" . -}}
+  
+  <div class="post-content">
     {{ .Content }}
+  </div>
 </article>
+
+<hr>
+
+{{ partial "comments.html" }} 
+
 {{ end }}
+

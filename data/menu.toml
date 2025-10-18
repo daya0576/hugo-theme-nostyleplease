@@ -18,7 +18,7 @@ title = "编程"
   limit = 10
   show_more = true
   show_more_text = "更多.."
-  show_more_url = "archives"
+  show_more_url = "/categories/编程/"
   categories = ["PYTHON", "JAVA", "SRE", "编程"]
 
 
@@ -29,7 +29,7 @@ title = "生活"
   limit = 10
   show_more = true
   show_more_text = "更多.."
-  show_more_url = "archives"
+  show_more_url = "/categories/生活/"
   categories = ["个人相关", "独立开发", "智能家居", "育儿", "读书", "派派"]
 
 

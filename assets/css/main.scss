@@ -71,8 +71,13 @@ body[a="light"] { @include light-appearance; }
 
 html { height: 100%; }
 
+:root {
+  // font-family: system-ui;
+  text-autospace: normal;
+}
+
 body {
-  font-family: 'sourcesanspro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: monospace;
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
@@ -86,9 +91,9 @@ body {
 }
 
 
-h1, h2, h3, h4, h5, h6 { margin: 1rem 0; }
-h1, h2 { margin: 2rem 0 1rem 0; }
-h1 { font-size: 2em; }
+h2, h3, h4, h5, h6 { margin-top: 1.5rem; }
+
+p { margin: 1rem 0; }
 
 hr { margin: 2rem 0; }
 
@@ -174,11 +179,11 @@ body article details {
 }
 
 body article {
-  font-size: 16px;
+  font-size: 15px;
 }
 @media screen and (max-width: 600px) {
   body article {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
