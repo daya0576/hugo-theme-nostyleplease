@@ -1,0 +1,14 @@
+{{ if .Params.series }}
+<div>
+  <hr />
+  <h4>这篇文章是该系列的一部分：</h4>
+  <ol class="list-group">
+    {{ range $num,$post := (index .Site.Taxonomies.series (index .Params.series
+    0 | urlize)).Pages.ByDate }}
+    <li class="list-group-item">
+      <a href="{{$post.RelPermalink}}"> {{ $post.Params.title}} </a>
+    </li>
+    {{end}}
+  </ol>
+</div>
+{{end}}

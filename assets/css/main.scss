@@ -53,7 +53,7 @@
 
 // @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(#1d1d1d, #000, #ffffff, #000000, #79a8ff, #f78fe7, #2f3849, #E0E0E0); // modus-vivendi
+  @include theme(rgb(22, 22, 22), #000, #ffffff, rgb(216, 216, 216), #79a8ff, #f78fe7, #2f3849, rgb(216, 216, 216)); // modus-vivendi
 }
 
 @mixin light-appearance {
@@ -78,7 +78,7 @@ html { height: 100%; }
 body {
   font-family: monospace;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.8;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
