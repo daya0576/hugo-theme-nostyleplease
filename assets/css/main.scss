@@ -53,7 +53,7 @@
 
 // @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(rgb(28, 29, 31), #000, rgb(222, 222, 223), #79a8ff, #f78fe7, #2f3849, rgb(188, 188, 188)); // modus-vivendi
+  @include theme(rgb(30, 30, 30), #000, rgb(224, 224, 224), #79a8ff, #f78fe7, #2f3849, rgb(190, 190, 190)); // modus-vivendi
 }
 
 @mixin light-appearance {
@@ -78,7 +78,7 @@ html { height: 100%; }
 body {
   font-family: monospace;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
@@ -179,11 +179,6 @@ body {
 }
 
 body article {
-  font-size: 16px;
-  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei","MiSans L3","Segoe UI",sans-serif;
 }
-@media screen and (max-width: 640px) {
-  body article {
-    font-size: 15px;
-  }
-}
+
