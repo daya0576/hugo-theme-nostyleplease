@@ -1,5 +1,5 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight, $--article-color) {
+@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight, $--article-color) {
   background-color: $--bg-color;
 
   color: $--primary-text-color;
@@ -10,8 +10,6 @@
     // &:visited { color: $--visited-link-color; }
     &:hover { text-decoration: underline; }
   }
-
-  h1, h2, h3, h4, h5, h6 { color: $--primary-text-color; }
 
   article {
     color: $--article-color;
@@ -49,15 +47,17 @@
     border: thin solid $--primary-text-color;
     padding: 1rem;
   }
+
+  figcaption { color: $--secondary-text-color; }
 }
 
-// @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
+// @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(rgb(30, 30, 30), #000, rgb(224, 224, 224), #79a8ff, #f78fe7, #2f3849, rgb(190, 190, 190)); // modus-vivendi
+  @include theme(#1d1d1d, #000, #ffffff, #000000, #79a8ff, #f78fe7, #2f3849, #E0E0E0); // modus-vivendi
 }
 
 @mixin light-appearance {
-  @include theme(#ffffff, #eee, #000000, #3548cf, #8f0075, #dae5ec, #333); // modus-operandi
+  @include theme(#ffffff, #eee, #000000, #595959, #3548cf, #8f0075, #dae5ec, #000); // modus-operandi
 }
 
 body[a="dark"] { @include dark-appearance; }
