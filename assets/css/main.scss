@@ -13,14 +13,6 @@
 
   h1, h2, h3, h4, h5, h6 { color: $--primary-text-color; }
 
-  article {
-    color: $--article-color;
-    a {
-      color: $--primary-text-color;
-      font-weight: 500;
-    }   
-  }
-
   details {
     border: thin solid $--primary-text-color;
     padding: 1rem;
@@ -53,11 +45,12 @@
     border: thin solid $--primary-text-color;
     padding: 1rem;
   }
+
 }
 
 // @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(rgb(28, 28, 28), #000, rgb(220, 220, 220), #79a8ff, #f78fe7, #2f3849, rgb(190, 190, 190)); // modus-vivendi
+  @include theme(#121212, #000, rgba(255, 255, 255, 0.87), #79a8ff, #f78fe7, #2f3849, rgba(255, 255, 255, 0.87)); // modus-vivendi
 }
 
 @mixin light-appearance {
@@ -82,7 +75,7 @@ html { height: 100%; }
 body {
   font-family: monospace;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.75;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
