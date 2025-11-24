@@ -1,7 +1,7 @@
 {{ if .Params.series }}
 <div>
   <hr />
-  <h4>全职奶爸与孩子一起成长的点滴：</h4>
+  <h4>与孩子一起成长的点滴：</h4>
   <ol class="list-group">
     {{ range $num,$post := (index .Site.Taxonomies.series (index .Params.series
     0 | urlize)).Pages.ByTitle }}
