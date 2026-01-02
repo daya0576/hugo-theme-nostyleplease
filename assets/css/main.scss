@@ -30,7 +30,6 @@
 
   pre {
     background: $--pure-bg-color;
-    font-size: 85%;
   }
 
   *:target {
@@ -118,6 +117,7 @@ hr {
 pre {
   padding: 1em;
   overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
+  -webkit-text-size-adjust: 100%;
 }
 
 table { width: 100%; }
@@ -183,4 +183,7 @@ body article .post-content {
   h3 { font-size: 1.25em; }
 }
 
-
+pre {
+  font-size: 85%;
+  -webkit-text-size-adjust: 100%;
+}
