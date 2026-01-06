@@ -1,12 +1,7 @@
-{{ if .Params.toc }}
-<details>
-  <summary>目录：</summary>
-  <aside>
-    <div>
-      {{ .TableOfContents }}
-    </div>
-  </aside>
-</details>
+{{ if ne .Params.toc false }}
+<nav class="floating-toc">
+  {{ .TableOfContents }}
+</nav>
 {{ end }}
 
 

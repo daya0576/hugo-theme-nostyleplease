@@ -17,4 +17,9 @@
         {{- end -}}
     {{- end -}}
 
+    {{ if ne .Params.toc false }}
+        {{ $toc := resources.Get "js/toc.js" }}
+        <script src="{{ $toc.RelPermalink }}"></script>
+    {{ end }}
+
 </html>
