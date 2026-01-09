@@ -23,11 +23,6 @@
     text-decoration: none;
   }
 
-  code:not(pre > code) {
-    background-color: $--primary-text-color;
-    color: $--bg-color;
-  }
-
   pre {
     background: $--pure-bg-color;
   }
@@ -51,7 +46,7 @@
 // https://m2.material.io/#:~:text=Light%20text%20on%20dark%20backgrounds
 // @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(#121212, #000, rgba(255, 255, 255, 0.87), #79a8ff, #f78fe7, #2f3849, rgba(255, 255, 255, 0.87)); // modus-vivendi
+  @include theme(#1a1a1a, #0d0d0d, rgba(255, 255, 255, 0.9), #60a5fa, #f78fe7, #2d3748, rgba(255, 255, 255, 0.9)); // optimized dark
 }
 
 @mixin light-appearance {
@@ -98,7 +93,7 @@ p { margin: 1rem 0; }
 li { margin: 0.4rem 0; }
 
 .w {
-  max-width: 700px;
+  max-width: 800px;
   padding: 1rem 1rem;
   margin: 0 auto;
 }
@@ -116,9 +111,12 @@ hr {
 }
 
 pre {
-  padding: 1em;
+  padding: 1.2em 1.4em;
   overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
   -webkit-text-size-adjust: 100%;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(128, 128, 128, 0.15);
 }
 
 table { width: 100%; }
@@ -129,9 +127,15 @@ table, th, td {
   padding: 0.4rem;
 }
 
+code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+}
+
 code:not(pre > code) {
-  padding: 0.1em 0.2em;
-  font-size: 90%;
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
 code.has-jax {
@@ -199,7 +203,7 @@ pre {
 .floating-toc {
   position: fixed;
   top: 200px;
-  left: calc(50% + 390px);
+  left: calc(50% + 440px);
   min-width: 150px;
   max-width: 300px;
   padding: 0.5rem 0rem 0.5rem 1.5rem;
@@ -226,7 +230,7 @@ pre {
   a {
     display: block;
     padding: 0.1rem 0;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: opacity 0.2s;
     
     &.active {
@@ -236,22 +240,22 @@ pre {
   }
 }
 
-// TOC colors
 @media (prefers-color-scheme: dark) {
   .floating-toc a {
-    color: #888 !important;
+    color: rgba(255, 255, 255, 0.6) !important;
     
-    &.active {
-      color: #aaa !important;
+    &:hover {
+      color: rgba(255, 255, 255, 0.85) !important;
     }
   }
 }
+
 @media (prefers-color-scheme: light) {
   .floating-toc a {
-    color: #666 !important;
+    color: rgba(0, 0, 0, 0.5) !important;
     
-    &.active {
-      color: #333 !important;
+    &:hover {
+      color: rgba(0, 0, 0, 0.8) !important;
     }
   }
 }
@@ -262,5 +266,23 @@ pre {
   }
 }
 
+// -------------- CODE STYLING -------------- //
+@media (prefers-color-scheme: dark) {
+  body[a="auto"], body[a="dark"] {
+    code:not(pre > code) {
+      background-color: rgba(110, 118, 129, 0.25);
+      color: #e6edf3;
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body[a="auto"], body[a="light"] {
+    code:not(pre > code) {
+      background-color: rgba(175, 184, 193, 0.2);
+      color: #24292f;
+    }
+  }
+}
 
 
