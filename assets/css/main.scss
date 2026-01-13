@@ -43,14 +43,14 @@
 
 }
 
-// https://m2.material.io/#:~:text=Light%20text%20on%20dark%20backgrounds
+// https://paletacolorpro.com/en/guia-modo-oscuro
 // @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(rgb(21, 21, 21), rgb(13, 13, 13), rgb(218, 218, 218), #60a5fa, #f78fe7, #2d3748, rgb(218, 218, 218)); // optimized dark
+  @include theme(#121212, rgb(13,13,13), rgba(255,255,255,0.87), #60A5FA, #f78fe7, #2d3748, rgb(218, 218, 218)); // optimized dark
 }
 
 @mixin light-appearance {
-  @include theme(rgb(255, 255, 255), #eee, rgb(34, 34, 34), #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34)); // modus-operandi
+  @include theme(rgb(255, 255, 255), #eee, #111827, #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34)); // modus-operandi
 }
 
 body[a="dark"] { @include dark-appearance; }
