@@ -1,7 +1,50 @@
 {{ if ne .Params.toc false }}
-<nav class="floating-toc">
+<nav class="floating-toc" id="floating-toc">
   {{ .TableOfContents }}
 </nav>
+
+<script>
+(function() {
+  const toc = document.getElementById('floating-toc');
+  if (!toc) return;
+  
+  const allLinks = toc.querySelectorAll('a');
+  const totalItems = allLinks.length;
+  
+  // If total items exceed 20, hide the deepest level
+  if (totalItems > 20) {
+    // Find all nested levels
+    const allLists = toc.querySelectorAll('ul');
+    if (allLists.length > 0) {
+      // Find the deepest ul elements
+      let maxDepth = 0;
+      const listsByDepth = new Map();
+      
+      allLists.forEach(ul => {
+        let depth = 0;
+        let parent = ul.parentElement;
+        while (parent && parent !== toc) {
+          if (parent.tagName === 'UL') depth++;
+          parent = parent.parentElement;
+        }
+        
+        if (!listsByDepth.has(depth)) {
+          listsByDepth.set(depth, []);
+        }
+        listsByDepth.get(depth).push(ul);
+        maxDepth = Math.max(maxDepth, depth);
+      });
+      
+      // Hide the deepest level
+      if (maxDepth > 0 && listsByDepth.has(maxDepth)) {
+        listsByDepth.get(maxDepth).forEach(ul => {
+          ul.style.display = 'none';
+        });
+      }
+    }
+  }
+})();
+</script>
 {{ end }}
 
 

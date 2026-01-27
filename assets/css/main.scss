@@ -1,5 +1,5 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight, $--article-color) {
+@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight, $--article-color, $--heading-color: $--primary-text-color) {
   background-color: $--bg-color;
 
   color: $--primary-text-color;
@@ -11,7 +11,7 @@
     &:hover { text-decoration: underline; }
   }
 
-  h1, h2, h3, h4, h5, h6 { color: $--primary-text-color; }
+  h1, h2, h3, h4, h5, h6 { color: $--heading-color; }
 
   details {
     border: thin solid $--primary-text-color;
@@ -41,16 +41,25 @@
     padding: 1rem;
   }
 
+  // TOC styles derived from theme variables
+  .floating-toc {
+    box-shadow: inset 1px 0 0 rgba($--primary-text-color, 0.20);
+    a {
+      color: rgba($--heading-color, 0.65) !important;
+      &:hover { color: $--heading-color !important; }
+    }
+  }
+
 }
 
 // https://paletacolorpro.com/en/guia-modo-oscuro
 // @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
 @mixin dark-appearance {
-  @include theme(#121212, rgb(13,13,13), #e5e5e5, #6da6ff, #f78fe7, #2d3748, rgb(218, 218, 218)); // optimized dark
+  @include theme(#121212, rgb(13,13,13), #e5e5e5, #6da6ff, #f78fe7, #2d3748, rgb(218, 218, 218), #ffffff); // optimized dark
 }
 
 @mixin light-appearance {
-  @include theme(rgb(255, 255, 255), #eee, #111827, #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34)); // modus-operandi
+  @include theme(rgb(255, 255, 255), #eee, #111827, #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34), #000000); // modus-operandi
 }
 
 body[a="dark"] { @include dark-appearance; }
@@ -88,37 +97,32 @@ body {
   text-align: left; 
   font-size: 0.9rem;
   font-style: italic;
-  margin-bottom: 1.5rem;
-  opacity: 0.75;
 }
 
 h1, h2, h3, h4, h5, h6 { 
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
   line-height: 1.35;
-  font-weight: 600;
 }
 
-h1 { margin-top: 2.8rem; font-size: 2em; }
-h2 { margin-top: 2.4rem; font-size: 1.6em; }
-h3 { margin-top: 1.8rem; font-size: 1.35em; }
-h4, h5, h6 { margin-top: 1.5rem; font-size: 1.1em; }
+h1 { margin-top: 2.5rem; }
+h2 { margin-top: 2rem; }
+h3 { margin-top: 1.5rem; }
+h4, h5, h6 { margin-top: 1.25rem; }
 
-hr { margin: 2.5rem 0; }
+hr { margin: 2rem 0; }
 
-p { margin: 1.2rem 0; }
+p { margin: 1rem 0; }
 
-li { margin: 0.6rem 0; }
+li { margin: 0.4rem 0; }
 
 .w {
   max-width: 720px;
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   margin: 0 auto;
 }
 
 .toc {
-  padding: 1.2rem;
-  margin: 1.5rem 0;
-  border-radius: 6px;
+  padding: 1rem;
 }
 
 hr {
@@ -130,18 +134,15 @@ hr {
 }
 
 pre {
-  padding: 1.2rem;
-  margin: 1.2rem 0;
-  border-radius: 6px;
-  overflow-x: auto;
+  padding: 1em;
 }
 
-table { width: 100%; margin: 1.5rem 0; }
+table { width: 100%; }
 
 table, th, td {
   border: thin solid black;
   border-collapse: collapse;
-  padding: 0.6rem 0.8rem;
+  padding: 0.4rem;
 }
 
 code {
@@ -163,26 +164,23 @@ code.has-jax {
 }
 
 blockquote {
-  border-left: 4px solid rgba(128, 128, 128, 0.4);
-  padding-left: 1.5rem;
-  margin: 1.5rem 0;
+  border-left: 3px solid rgba(128, 128, 128, 0.3);
+  padding-left: 1rem;
+  margin: 1rem 0;
   font-style: italic;
-  opacity: 0.85;
+  opacity: 0.9;
 
-  p { margin: 0.8rem 0; }
+  p { margin: 0; }
 }
 
 img {
   max-width: 100%;
-  max-height: 600px;
   display: block;
 }
 
 figcaption {
   text-align: center;
   opacity: 0.5;
-  margin-top: 0.6rem;
-  font-size: 0.9rem;
 }
 
 // -------------- THEME CUSTOMIZE -------------- //
@@ -228,7 +226,6 @@ pre {
   min-width: 150px;
   max-width: 300px;
   padding: 0.5rem 0rem 0.5rem 1.5rem;
-  border-left: thin solid rgba(128, 128, 128, 0.2);
   font-size: 0.85em;
   line-height: 1.4;
   max-height: calc(100vh - 40px);
@@ -261,27 +258,7 @@ pre {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .floating-toc a {
-    color: rgba(255,255,255,0.60) !important;
-    
-    // keep color same as $--primary-text-color
-    &:hover {
-      color: rgba(255,255,255,0.87) !important;
-    }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .floating-toc a {
-    color: rgb(92, 92, 92) !important;
-    
-    // keep color same as $--primary-text-color
-    &:hover {
-      color: rgb(34, 34, 34) !important;
-    }
-  }
-}
+/* TOC link colors are derived from theme variables inside the mixin */
 
 @media (max-width: 990px) {
   .floating-toc {
