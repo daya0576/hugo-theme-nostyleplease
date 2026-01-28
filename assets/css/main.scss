@@ -85,6 +85,8 @@ body {
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (max-width: 768px) {
@@ -176,6 +178,9 @@ blockquote {
 img {
   max-width: 100%;
   display: block;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 4px;
+  margin: 1rem auto;
 }
 
 figcaption {
@@ -200,7 +205,7 @@ body {
 }
 
 body article .post-content, .post-meta {
-  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","WenQuanYi Micro Hei","MiSans L3","Segoe UI",sans-serif;
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", Roboto, "Segoe UI", sans-serif;
 
   h1 { font-size: 1.75em; }
   h2 { font-size: 1.5em; }
