@@ -1,4 +1,4 @@
-{{ if ne .Params.toc false }}
+{{ if eq .Params.toc true }}
 <nav class="floating-toc" id="floating-toc">
   {{ .TableOfContents }}
 </nav>
