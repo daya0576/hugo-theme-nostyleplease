@@ -59,7 +59,7 @@
 }
 
 @mixin light-appearance {
-  @include theme(rgb(255, 255, 255), #eee, #111827, #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34), #000000); // modus-operandi
+  @include theme(rgb(255, 255, 255), #eee, #000, #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34), #000000); // modus-operandi
 }
 
 body[a="dark"] { @include dark-appearance; }
@@ -168,7 +168,7 @@ blockquote {
   padding-left: 1rem;
   margin: 1rem 0;
   font-style: italic;
-  opacity: 0.9;
+  opacity: 0.7;
 
   p { margin: 0; }
 }
