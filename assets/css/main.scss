@@ -89,9 +89,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   body {
-    font-size: 15px;
     line-height: 1.7;
   }
 }
@@ -174,7 +173,7 @@ blockquote {
   padding-left: 1rem;
   margin: 1.5rem 0;
   font-style: italic;
-  opacity: 0.75;
+  opacity: 0.65;
 
   p { margin: 0; }
 }
