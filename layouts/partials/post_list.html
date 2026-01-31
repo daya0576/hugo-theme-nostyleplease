@@ -13,11 +13,9 @@
     {{- end -}}
 {{- end -}}
 
-{{ $slice := slice "sre" "SRE" }}
-{{ $posts := where site.RegularPages "Params.categories" "intersect" .categories }}
-
 {{- end -}}
 
+{{- $posts = $posts.ByDate.Reverse -}}
 
 {{- $limit_exceeded:= "" -}}
 {{- if (and .limit (gt (len $posts) .limit)) -}}
