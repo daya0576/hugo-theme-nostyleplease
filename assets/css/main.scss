@@ -1,6 +1,12 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight, $--article-color, $--heading-color: $--primary-text-color) {
-  background-color: $--bg-color;
+@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--disabled-text-color, $--link-color, $--visited-link-color, $--highlight, $--heading-color) {
+  background-color: $--pure-bg-color;
+
+  .w {
+    background-color: $--bg-color;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05),
+                0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 
   color: $--primary-text-color;
 
@@ -23,10 +29,6 @@
     text-decoration: none;
   }
 
-  pre {
-    background: $--pure-bg-color;
-  }
-
   *:target {
     background: $--highlight;
     color: $--primary-text-color;
@@ -44,22 +46,54 @@
   // TOC styles derived from theme variables
   .floating-toc {
     box-shadow: inset 1px 0 0 rgba($--primary-text-color, 0.20);
+    
     a {
-      color: rgba($--heading-color, 0.65) !important;
-      &:hover { color: $--heading-color !important; }
+      color: $--secondary-text-color;
+      &:hover { 
+        color: $--heading-color !important; 
+      }
     }
+  }
+
+  // Apply text hierarchy
+  .post-meta, figcaption {
+    color: $--secondary-text-color;
+  }
+
+  .disabled-text, .hint-text {
+    color: $--disabled-text-color;
   }
 
 }
 
 // https://paletacolorpro.com/en/guia-modo-oscuro
-// @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--link-color, $--visited-link-color, $--highlight) {
+// Text hierarchy: Primary (87%), Secondary (60%), Disabled (38%)
 @mixin dark-appearance {
-  @include theme(#121212, rgb(13,13,13), #e5e5e5, #6da6ff, #f78fe7, #2d3748, rgb(218, 218, 218), #ffffff); // optimized dark
+  @include theme(
+    #121212,                      // bg-color
+    rgb(13,13,13),                // pure-bg-color
+    rgba(255,255,255,0.87),       // primary-text-color (87%)
+    rgba(255,255,255,0.60),       // secondary-text-color (60%)
+    rgba(255,255,255,0.38),       // disabled-text-color (38%)
+    #6da6ff,                      // link-color
+    #f78fe7,                      // visited-link-color
+    #2d3748,                      // highlight
+    #ffffff                       // heading-color
+  );
 }
 
 @mixin light-appearance {
-  @include theme(rgb(255, 255, 255), #eee, #000, #3548cf, #8f0075, #dae5ec, rgb(34, 34, 34), #000000); // modus-operandi
+  @include theme(
+    #ffffff,                      // bg-color (内容区域纯白)
+    #f5f5f5,                      // pure-bg-color (页面背景温暖浅灰)
+    rgba(0,0,0,1.00),             // primary-text-color (87%)
+    rgba(0,0,0,0.60),             // secondary-text-color (60%)
+    rgba(0,0,0,0.38),             // disabled-text-color (38%)
+    #0000EE,                      // link-color (浏览器原生蓝)
+    #551A8B,                      // visited-link-color (浏览器原生紫)
+    #e0f2fe,                      // highlight (淡蓝高亮)
+    rgba(0,0,0,0.90)              // heading-color (标题稍深)
+  );
 }
 
 body[a="dark"] { @include dark-appearance; }
@@ -293,4 +327,10 @@ pre {
   }
 }
 
-
+// -------------- LIGHT MODE TOP MARGIN -------------- //
+@media (min-width: 481px) {
+  body[a="light"] .w,
+  body[a="auto"] .w {
+    margin-top: 2rem;
+  }
+}
