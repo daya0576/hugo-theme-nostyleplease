@@ -52,16 +52,11 @@
       &:hover { 
         color: $--heading-color !important; 
       }
+      &.active {
+        font-weight: bold;
+        color: $--heading-color !important;
+      }
     }
-  }
-
-  // Apply text hierarchy
-  .post-meta, figcaption {
-    color: $--secondary-text-color;
-  }
-
-  .disabled-text, .hint-text {
-    color: $--disabled-text-color;
   }
 
 }
@@ -71,7 +66,7 @@
 @mixin dark-appearance {
   @include theme(
     #121212,                      // bg-color
-    rgb(13,13,13),                // pure-bg-color
+    #121212,                      // pure-bg-color
     rgba(255,255,255,0.87),       // primary-text-color (87%)
     rgba(255,255,255,0.60),       // secondary-text-color (60%)
     rgba(255,255,255,0.38),       // disabled-text-color (38%)
@@ -84,9 +79,9 @@
 
 @mixin light-appearance {
   @include theme(
-    #ffffff,                      // bg-color (内容区域纯白)
-    #f5f5f5,                      // pure-bg-color (页面背景温暖浅灰)
-    rgba(0,0,0,1.00),             // primary-text-color (87%)
+    #fdfdf7,                      // bg-color (温暖米白色，纸质感)
+    #f3f2ee,                      // pure-bg-color (温暖浅米色背景)
+    rgba(0,0,0,0.87),             // primary-text-color (87%)
     rgba(0,0,0,0.60),             // secondary-text-color (60%)
     rgba(0,0,0,0.38),             // disabled-text-color (38%)
     #0000EE,                      // link-color (浏览器原生蓝)
@@ -264,13 +259,13 @@ pre {
 .floating-toc {
   position: fixed;
   top: 200px;
-  left: calc(50% + 390px);
+  left: calc(50% + 395px);
   min-width: 150px;
   max-width: 300px;
   padding: 0.5rem 0rem 0.5rem 1.5rem;
   font-size: 0.85em;
   line-height: 1.4;
-  max-height: calc(100vh - 40px);
+  max-height: calc(100vh - 240px);
   overflow-y: auto;
   
   ul {
@@ -291,11 +286,11 @@ pre {
     display: block;
     padding: 0.1rem 0;
     text-decoration: none !important;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
     
     &.active {
-      font-weight: bold;
-      opacity: 1;
+      font-weight: bold !important;
+      opacity: 1 !important;
     }
   }
 }
@@ -315,6 +310,10 @@ pre {
       background-color: rgba(110, 118, 129, 0.25);
       color: #e6edf3;
     }
+    
+    pre {
+      background-color: rgba(110, 118, 129, 0.15);
+    }
   }
 }
 
@@ -324,13 +323,9 @@ pre {
       background-color: rgba(175, 184, 193, 0.2);
       color: #24292f;
     }
-  }
-}
-
-// -------------- LIGHT MODE TOP MARGIN -------------- //
-@media (min-width: 481px) {
-  body[a="light"] .w,
-  body[a="auto"] .w {
-    margin-top: 2rem;
+    
+    pre {
+      background-color: rgba(175, 184, 193, 0.12);
+    }
   }
 }
