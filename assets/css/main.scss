@@ -244,6 +244,22 @@ body article .post-content, .post-meta {
   h3 { font-size: 1.25em; }
 }
 
+// -------------- REEDER-STYLE ARTICLE LINKS -------------- //
+body article .post-content {
+  a:not(.heading-anchor) {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(128, 128, 128, 0.4);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s ease;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+  }
+}
+
 pre {
   font-size: 85%;
   -webkit-text-size-adjust: 100%;
