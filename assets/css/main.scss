@@ -144,7 +144,8 @@ hr { margin: 2rem 0; }
 
 p { margin: 1rem 0; }
 
-li { margin: 0.4rem 0; }
+li:not(article li) { margin: 0.4rem 0; }
+
 
 .w {
   max-width: 740px;
@@ -257,6 +258,20 @@ body article .post-content {
     &:hover {
       text-decoration-color: currentColor;
     }
+  }
+
+  li { margin: 0.2rem 0; }
+
+  p + ul, p + ol {
+    margin-top: -0.5rem;
+  }
+
+  pre {
+    margin: 1.5rem 0;
+  }
+
+  img {
+    margin: 1.5rem auto;
   }
 }
 
