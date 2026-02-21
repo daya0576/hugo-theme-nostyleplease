@@ -41,7 +41,7 @@
     box-shadow: inset 1px 0 0 rgba($--primary-text-color, 0.20);
     
     a {
-      color: $--secondary-text-color;
+      color: $--secondary-text-color !important;
       &:hover { 
         color: $--heading-color !important; 
       }
@@ -72,12 +72,12 @@
 
 @mixin light-appearance {
   @include theme(
-    #fff,                      // bg-color (温暖米白色，纸质感)
+    #faf9f7,                      // bg-color (温暖米白色，纸质感)
     #f3f2ee,                      // pure-bg-color (温暖浅米色背景)
     rgba(0,0,0,0.87),             // primary-text-color (87%)
     rgba(0,0,0,0.60),             // secondary-text-color (60%)
     rgba(0,0,0,0.38),             // disabled-text-color (38%)
-    rgba(0,0,0,0.87),                      // link-color (深海蓝，高对比配合雨天)
+    rgba(0,0,0,0.87),             // link-color (深海蓝，高对比配合雨天)
     #5b3a6b,                      // visited-link-color (深紫，雨夜色调)
     #e0f2fe,                      // highlight (淡蓝高亮)
     rgba(0,0,0,0.90)              // heading-color (标题稍深)
@@ -109,6 +109,7 @@ body {
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
 }
 
 @media (max-width: 480px) {
@@ -194,7 +195,7 @@ code.has-jax {
 blockquote {
   border-left: 4px solid rgba(128, 128, 128, 0.4);
   padding-left: 1rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 0.5rem 0;
   font-style: italic;
   opacity: 0.65;
 

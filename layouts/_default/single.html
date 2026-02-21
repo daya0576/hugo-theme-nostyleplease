@@ -13,9 +13,12 @@
   </div>
 </article>
 
-<hr>
 
+
+{{- if ne .Params.comments false }}
+<hr>
 {{ partial "comments.html" }} 
+{{- end }}
 
 {{ end }}
 
