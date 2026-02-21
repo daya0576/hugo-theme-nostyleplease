@@ -1,13 +1,6 @@
 // -------------- THEME SWITCHER -------------- //
 @mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--disabled-text-color, $--link-color, $--visited-link-color, $--highlight, $--heading-color) {
-  background-color: $--pure-bg-color;
-
-  .w {
-    background-color: $--bg-color;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05),
-                0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  }
-
+  background-color: $--bg-color;
   color: $--primary-text-color;
 
   a {
@@ -79,13 +72,13 @@
 
 @mixin light-appearance {
   @include theme(
-    #fdfdf7,                      // bg-color (温暖米白色，纸质感)
+    #fff,                      // bg-color (温暖米白色，纸质感)
     #f3f2ee,                      // pure-bg-color (温暖浅米色背景)
     rgba(0,0,0,0.87),             // primary-text-color (87%)
     rgba(0,0,0,0.60),             // secondary-text-color (60%)
     rgba(0,0,0,0.38),             // disabled-text-color (38%)
-    #0000EE,                      // link-color (浏览器原生蓝)
-    #551A8B,                      // visited-link-color (浏览器原生紫)
+    rgba(0,0,0,0.87),                      // link-color (深海蓝，高对比配合雨天)
+    #5b3a6b,                      // visited-link-color (深紫，雨夜色调)
     #e0f2fe,                      // highlight (淡蓝高亮)
     rgba(0,0,0,0.90)              // heading-color (标题稍深)
   );
