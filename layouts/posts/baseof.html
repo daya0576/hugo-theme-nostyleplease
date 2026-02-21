@@ -5,12 +5,12 @@
     
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
         {{- partial "rain.html" . -}}
-        {{- partial "ripple.html" . -}}
         <main class="page-content" aria-label="Content">
             <div class="w">
                 {{- block "main" . }}{{- end }}
             </div>
         </main>
+        {{- partial "ripple.html" . -}}
     </body>
     
     {{- if .Params.custom_js -}}
