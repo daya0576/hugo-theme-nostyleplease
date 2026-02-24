@@ -1,12 +1,11 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--pure-bg-color, $--primary-text-color, $--secondary-text-color, $--disabled-text-color, $--link-color, $--visited-link-color, $--highlight, $--heading-color) {
+@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--highlight, $--heading-color, $--code-accent, $--code-text) {
   background-color: $--bg-color;
   color: $--primary-text-color;
 
   a {
     color: $--link-color;
     text-decoration: none;
-    // &:visited { color: $--visited-link-color; }
     &:hover { text-decoration: underline; }
   }
 
@@ -17,70 +16,77 @@
     padding: 1rem;
   }
 
-  details summary {
-    color: $--primary-text-color;
-    text-decoration: none;
-  }
-
   *:target {
     background: $--highlight;
     color: $--primary-text-color;
-   }
+  }
 
-   table, th, td {
-     border: thin solid $--primary-text-color;
+  table, th, td {
+    border: thin solid $--primary-text-color;
+  }
 
-   }
   .toc {
     border: thin solid $--primary-text-color;
     padding: 1rem;
   }
 
-  // TOC styles derived from theme variables
   .floating-toc {
     box-shadow: inset 1px 0 0 rgba($--primary-text-color, 0.20);
-    
+
     a {
       color: $--secondary-text-color !important;
-      &:hover { 
-        color: $--heading-color !important; 
+      &:hover {
+        color: $--heading-color !important;
       }
       &.active {
-        font-weight: bold;
+        font-weight: bold !important;
         color: $--heading-color !important;
       }
     }
   }
 
+  // Code & syntax highlighting
+  code:not(pre > code) {
+    background-color: rgba($--code-accent, 0.22);
+    color: $--code-text;
+  }
+
+  pre {
+    background-color: rgba($--code-accent, 0.13);
+  }
+
+  .github-code-header {
+    background-color: rgba($--code-accent, 0.25);
+    border-bottom: 1px solid rgba($--code-accent, 0.35);
+    a { color: $--code-text !important; }
+  }
 }
 
 // https://paletacolorpro.com/en/guia-modo-oscuro
-// Text hierarchy: Primary (87%), Secondary (60%), Disabled (38%)
+// Text hierarchy: Primary (87%), Secondary (60%)
 @mixin dark-appearance {
   @include theme(
     #121212,                      // bg-color
-    #121212,                      // pure-bg-color
     rgba(255,255,255,0.87),       // primary-text-color (87%)
     rgba(255,255,255,0.60),       // secondary-text-color (60%)
-    rgba(255,255,255,0.38),       // disabled-text-color (38%)
     #6da6ff,                      // link-color
-    #f78fe7,                      // visited-link-color
     #2d3748,                      // highlight
-    #ffffff                       // heading-color
+    #ffffff,                      // heading-color
+    rgb(110, 118, 129),           // code-accent
+    #e6edf3                       // code-text
   );
 }
 
 @mixin light-appearance {
   @include theme(
-    #faf9f7,                      // bg-color (温暖米白色，纸质感)
-    #f3f2ee,                      // pure-bg-color (温暖浅米色背景)
+    #faf9f7,                      // bg-color
     rgba(0,0,0,0.87),             // primary-text-color (87%)
     rgba(0,0,0,0.60),             // secondary-text-color (60%)
-    rgba(0,0,0,0.38),             // disabled-text-color (38%)
-    rgba(0,0,0,0.87),             // link-color (深海蓝，高对比配合雨天)
-    #5b3a6b,                      // visited-link-color (深紫，雨夜色调)
-    #e0f2fe,                      // highlight (淡蓝高亮)
-    rgba(0,0,0,0.90)              // heading-color (标题稍深)
+    rgba(0,0,0,0.87),             // link-color
+    #e0f2fe,                      // highlight
+    rgba(0,0,0,0.90),             // heading-color
+    rgb(175, 184, 193),           // code-accent
+    #24292f                       // code-text
   );
 }
 
@@ -110,6 +116,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
+
+  nav a { margin-right: 8px; }
+
+  article details { margin-top: 1rem; }
 }
 
 @media (max-width: 480px) {
@@ -134,24 +144,8 @@ h2 { margin-top: 2rem; }
 h3 { margin-top: 1.5rem; }
 h4, h5, h6 { margin-top: 1.25rem; }
 
-hr { margin: 2rem 0; }
-
-p { margin: 1rem 0; }
-
-li:not(article li) { margin: 0.4rem 0; }
-
-
-.w {
-  max-width: 740px;
-  padding: 1.5rem 1.5rem;
-  margin: 0 auto;
-}
-
-.toc {
-  padding: 1rem;
-}
-
 hr {
+  margin: 2rem 0;
   text-align: center;
   border: 0;
 
@@ -159,16 +153,31 @@ hr {
   &:after { content: attr(data-content) '/////' }
 }
 
+p { margin: 1rem 0; }
+
+li:not(article li) { margin: 0.4rem 0; }
+
+.w {
+  max-width: 740px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+
 pre {
   padding: 1.2em;
   overflow-x: auto;
   border-radius: 6px;
+  font-size: 85%;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 768px) {
+  pre { font-size: 75%; }
 }
 
 table { width: 100%; }
 
 table, th, td {
-  border: thin solid black;
   border-collapse: collapse;
   padding: 0.4rem;
 }
@@ -216,16 +225,6 @@ figcaption {
 .video-shortcode {
   max-height: 600px;
   max-width: 600px;
-}
-
-body {
-  nav a {
-    margin-right: 8px;
-  }
-  article details {
-    margin-top: 1rem;
-    padding: 1rem;
-  }
 }
 
 body article .post-content, .post-meta {
@@ -284,17 +283,6 @@ body article .post-content {
   }
 }
 
-pre {
-  font-size: 85%;
-  -webkit-text-size-adjust: 100%;
-}
-
-@media (max-width: 768px) {
-  pre {
-    font-size: 75%;
-  }
-}
-
 // -------------- FLOATING TOC -------------- //
 .floating-toc {
   position: fixed;
@@ -302,17 +290,14 @@ pre {
   left: calc(50% + 395px);
   min-width: 150px;
   max-width: 300px;
-  padding: 0.5rem 0rem 0.5rem 1.5rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
   font-size: 0.85em;
   line-height: 1.4;
   max-height: calc(100vh - 240px);
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
   
   ul {
     list-style: none;
@@ -333,15 +318,8 @@ pre {
     padding: 0.1rem 0;
     text-decoration: none !important;
     transition: all 0.2s;
-    
-    &.active {
-      font-weight: bold !important;
-      opacity: 1 !important;
-    }
   }
 }
-
-/* TOC link colors are derived from theme variables inside the mixin */
 
 @media (max-width: 990px) {
   .floating-toc {
@@ -351,7 +329,7 @@ pre {
 
 // -------------- GITHUB CODE HEADER -------------- //
 body article .post-content .github-code-header {
-  margin-top: 0rem;
+  margin-top: 0;
 }
 
 .github-code-header {
@@ -386,76 +364,5 @@ body article .post-content .github-code-header {
   + pre {
     border-radius: 0 0 6px 6px !important;
     margin-top: 0 !important;
-  }
-}
-
-body[a="dark"] {
-  .github-code-header {
-    background-color: rgba(110, 118, 129, 0.25);
-    border-bottom: 1px solid rgba(110, 118, 129, 0.3);
-    a {
-      color: #e6edf3 !important;
-      &::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23aaa'%3E%3Cpath d='M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z'/%3E%3C/svg%3E");
-      }
-    }
-  }
-}
-
-body[a="light"] {
-  .github-code-header {
-    background-color: rgba(175, 184, 193, 0.25);
-    border-bottom: 1px solid rgba(175, 184, 193, 0.4);
-    a {
-      color: #24292f !important;
-    }
-  }
-}
-
-// -------------- CODE STYLING -------------- //
-@media (prefers-color-scheme: dark) {
-  body[a="auto"], body[a="dark"] {
-    code:not(pre > code) {
-      background-color: rgba(110, 118, 129, 0.25);
-      color: #e6edf3;
-    }
-    
-    pre {
-      background-color: rgba(110, 118, 129, 0.15);
-    }
-
-    .github-code-header {
-      background-color: rgba(110, 118, 129, 0.25);
-      border-bottom: 1px solid rgba(110, 118, 129, 0.3);
-
-      a {
-        color: #e6edf3 !important;
-        &::before {
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23aaa'%3E%3Cpath d='M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z'/%3E%3C/svg%3E");
-        }
-      }
-    }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body[a="auto"], body[a="light"] {
-    code:not(pre > code) {
-      background-color: rgba(175, 184, 193, 0.2);
-      color: #24292f;
-    }
-    
-    pre {
-      background-color: rgba(175, 184, 193, 0.12);
-    }
-
-    .github-code-header {
-      background-color: rgba(175, 184, 193, 0.25);
-      border-bottom: 1px solid rgba(175, 184, 193, 0.4);
-
-      a {
-        color: #24292f !important;
-      }
-    }
   }
 }
