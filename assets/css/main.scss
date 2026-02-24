@@ -204,9 +204,7 @@ blockquote {
 img {
   max-width: 100%;
   display: block;
-  border: 1px solid rgba(128, 128, 128, 0.15);
   border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 figcaption {
@@ -264,7 +262,7 @@ body article .post-content {
   }
 
   img {
-    margin: 1.5rem auto;
+    margin: 0.5rem auto;
   }
 }
 
