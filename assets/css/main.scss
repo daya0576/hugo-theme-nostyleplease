@@ -235,24 +235,6 @@ body article .post-content, .post-meta {
   h3 { font-size: 1.25em; }
 }
 
-// -------------- HEADING ANCHORS -------------- //
-.post-content a.heading-anchor {
-  color: inherit;
-  text-decoration: none !important;
-
-  &::after {
-    content: ' #';
-    opacity: 0;
-    font-size: 0.8em;
-    font-weight: normal;
-    transition: opacity 0.15s ease;
-  }
-
-  &:hover::after {
-    opacity: 0.4;
-  }
-}
-
 // -------------- REEDER-STYLE ARTICLE LINKS -------------- //
 body article .post-content {
   a:not(.heading-anchor) {
