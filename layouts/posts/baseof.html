@@ -4,10 +4,13 @@
     {{- partial "head.html" . -}}
     
     <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
-        <main class="page-content" aria-label="Content" style="position:relative;">
+        {{- partial "rain.html" . -}}
+        <main class="page-content" aria-label="Content" style="position:relative;z-index:3;">
             <div class="w">
                 {{- block "main" . }}{{- end }}
             </div>
+            {{- partial "ripple.html" . -}}
+            {{- partial "rain-sound.html" . -}}
         </main>
     </body>
     
