@@ -315,5 +315,23 @@ body.about-page article a {
   text-decoration-color: rgba(128, 128, 128, 0.4);
 }
 
-
+// -------------- RAIN TOGGLE BUTTON -------------- //
+.rain-toggle {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  z-index: 50;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+  color: inherit;
+  display: none;
+  line-height: 0;
+  &.visible { display: block; }
+  &:hover { opacity: 0.85; }
+  svg { display: block; width: 16px; height: 16px; }
+}
 
