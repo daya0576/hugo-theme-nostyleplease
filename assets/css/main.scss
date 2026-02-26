@@ -315,45 +315,5 @@ body.about-page article a {
   text-decoration-color: rgba(128, 128, 128, 0.4);
 }
 
-#rain-toggle {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 999;
-  cursor: pointer;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.85;
-  transition: opacity 0.2s;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  user-select: none;
 
-  &:hover {
-    opacity: 1;
-  }
-
-  &:active {
-    opacity: 0.6;
-  }
-}
-
-body[a="light"] #rain-toggle {
-  background: rgba(0, 0, 0, 0.08);
-  color: rgba(0, 0, 0, 0.6);
-}
-
-@media (prefers-color-scheme: light) {
-  body[a="auto"] #rain-toggle {
-    background: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.6);
-  }
-}
 
