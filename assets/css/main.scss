@@ -79,10 +79,10 @@
 
 @mixin light-appearance {
   @include theme(
-    #fff,                         // bg-color
-    rgba(0,0,0,1),                // primary-text-color (87%)
+    #ffffff,                         // bg-color
+    #000000,                // primary-text-color (87%)
     rgba(0,0,0,0.60),             // secondary-text-color (60%)
-    rgba(0,0,0,0.87),             // link-color
+    #3548cf,             // link-color
     #e0f2fe,                      // highlight
     rgba(0,0,0,0.90),             // heading-color
     rgb(175, 184, 193),           // code-accent
