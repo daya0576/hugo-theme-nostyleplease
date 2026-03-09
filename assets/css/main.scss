@@ -122,9 +122,12 @@ body {
   article details { margin-top: 1rem; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   body {
-    line-height: 1.7;
+    font-size: 15px;
+    ul {
+      padding-inline-start: 30px;
+    }
   }
 }
 
@@ -204,7 +207,6 @@ blockquote {
   border-left: 4px solid rgba(128, 128, 128, 0.4);
   padding-left: 1rem;
   margin: 1.5rem 0 0.5rem 0;
-  font-style: italic;
   opacity: 0.65;
 
   p { margin: 0; }
