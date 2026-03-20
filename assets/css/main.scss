@@ -66,13 +66,13 @@
 // Text hierarchy: Primary (~73%), Secondary (~50%)
 @mixin dark-appearance {
   @include theme(
-    #1c1b1c,                      // bg-color
-    #bbbbbb,                      // primary-text-color (≈73%)
-    rgba(255,255,255,0.50),       // secondary-text-color (50%)
+    #121212,                      // bg-color
+    rgba(255,255,255,0.87),       // primary-text-color (87%)
+    rgba(255,255,255,0.60),       // secondary-text-color (60%)
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    #dddddd,                      // heading-color (≈87%)
-    #6e7681,                      // code-accent
+    #ffffff,                      // heading-color
+    rgb(110, 118, 129),           // code-accent
     #e6edf3                       // code-text
   );
 }
