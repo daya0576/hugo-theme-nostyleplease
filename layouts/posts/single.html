@@ -4,8 +4,11 @@
 <article>
   <header>
     <h1>{{ .Title }}</h1>
-    <div class="post-meta">
-      {{ partial "post-date.html" .Date }}
+    <div class="post-header-date">
+      {{- .Date.Format "Monday, January 2, 2006" | upper -}}
+      {{- with .Params.categories }}
+        · {{ range $i, $c := . }}<a href="{{ "/categories/" | relURL }}{{ $c | urlize }}/">#{{ $c }}</a> {{ end }}
+      {{- end }}
     </div>
   </header>
   
@@ -20,4 +23,3 @@
 {{ partial "comments.html" }} 
 
 {{ end }}
-

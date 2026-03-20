@@ -66,12 +66,12 @@
 // Text hierarchy: Primary (87%), Secondary (60%)
 @mixin dark-appearance {
   @include theme(
-    #121212,                      // bg-color
-    rgba(255,255,255,0.87),       // primary-text-color (87%)
+    #1c1c1e,                      // bg-color
+    rgba(255,255,255,0.73),       // primary-text-color (73% ≈ #bbb)
     rgba(255,255,255,0.60),       // secondary-text-color (60%)
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    #ffffff,                      // heading-color
+    #dddddd,                      // heading-color (#ddd ≈ 221)
     rgb(110, 118, 129),           // code-accent
     #e6edf3                       // code-text
   );
@@ -113,8 +113,6 @@ body {
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
 
   nav a { margin-right: 8px; }
@@ -131,10 +129,12 @@ body {
   }
 }
 
-.post-meta { 
-  text-align: left; 
-  font-size: 0.9rem;
-  font-style: italic;
+.post-header-date {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  line-height: 1.6;
+  margin-top: 0.2rem;
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -229,16 +229,22 @@ figcaption {
   max-width: 600px;
 }
 
-body article .post-content, .post-meta {
-  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", Roboto, "Segoe UI", sans-serif;
+article header {
+  margin-top: 2rem;
 
-  h1 { font-size: 1.75em; }
-  h2 { font-size: 1.5em; }
-  h3 { font-size: 1.25em; }
+  h1 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
 }
 
-// -------------- REEDER-STYLE ARTICLE LINKS -------------- //
-body article .post-content {
+body[a] article header,
+body[a] article .post-content {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", Roboto, "Segoe UI", sans-serif;
+
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.25em; }
+
   a {
     color: inherit;
     text-decoration: underline;
@@ -252,11 +258,17 @@ body article .post-content {
     }
   }
 
-  li { margin: 0.2rem 0; }
+  li { margin: 0.1rem 0; }
 
   p + ul, p + ol {
     margin-top: -0.5rem;
   }
+
+  p { margin: 0.85rem 0; }
+
+  h1 { margin-top: 1.5rem; }
+  h2 { margin-top: 1.8rem; }
+  h3 { margin-top: 1.3rem; }
 
   pre {
     margin: 1.5rem 0;
