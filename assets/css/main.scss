@@ -48,7 +48,6 @@
   // Code & syntax highlighting
   code:not(pre > code) {
     background-color: rgba($--code-accent, 0.22);
-    color: $--code-text;
   }
 
   pre {
@@ -66,12 +65,12 @@
 // Text hierarchy: Primary (87%), Secondary (60%)
 @mixin dark-appearance {
   @include theme(
-    #1c1c1e,                      // bg-color
-    rgba(255,255,255,0.73),       // primary-text-color (73% ≈ #bbb)
-    rgba(255,255,255,0.60),       // secondary-text-color (60%)
+    rgb(28,27,28),                // bg-color
+    rgb(187,187,187),            // primary-text-color (73% ≈ #bbb)
+    rgba(255,255,255,0.5),       // secondary-text-color (60%)
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    #dddddd,                      // heading-color (#ddd ≈ 221)
+    rgb(221,221,221),            // heading-color (#ddd ≈ 221)
     rgb(110, 118, 129),           // code-accent
     #e6edf3                       // code-text
   );
@@ -134,7 +133,8 @@ body {
   letter-spacing: 0.08em;
   opacity: 0.6;
   line-height: 1.6;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -158,7 +158,7 @@ hr {
 
 p { margin: 1rem 0; }
 
-li:not(article li) { margin: 0.4rem 0; }
+li:not(article li) { margin: 0.3rem 0; }
 
 .w {
   max-width: 740px;
@@ -193,7 +193,6 @@ code:not(pre > code) {
   padding: 0.2em 0.4em;
   font-size: 85%;
   border-radius: 4px;
-  font-weight: 500;
 }
 
 code.has-jax {
@@ -263,8 +262,6 @@ body[a] article .post-content {
   p + ul, p + ol {
     margin-top: -0.5rem;
   }
-
-  p { margin: 0.85rem 0; }
 
   h1 { margin-top: 1.5rem; }
   h2 { margin-top: 1.8rem; }
