@@ -61,30 +61,29 @@
   }
 }
 
-// https://paletacolorpro.com/en/guia-modo-oscuro
-// Text hierarchy: Primary (87%), Secondary (60%)
+// Text hierarchy: Primary (~73%), Secondary (~50%)
 @mixin dark-appearance {
   @include theme(
-    rgb(28,27,28),                // bg-color
-    rgb(187,187,187),            // primary-text-color (73% ≈ #bbb)
-    rgba(255,255,255,0.5),       // secondary-text-color (60%)
+    #1c1b1c,                      // bg-color
+    #bbbbbb,                      // primary-text-color (≈73%)
+    rgba(255,255,255,0.50),       // secondary-text-color (50%)
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    rgb(221,221,221),            // heading-color (#ddd ≈ 221)
-    rgb(110, 118, 129),           // code-accent
+    #dddddd,                      // heading-color (≈87%)
+    #6e7681,                      // code-accent
     #e6edf3                       // code-text
   );
 }
 
 @mixin light-appearance {
   @include theme(
-    #ffffff,                         // bg-color
-    #000000,                // primary-text-color (87%)
-    rgba(0,0,0,0.60),             // secondary-text-color (60%)
-    #3548cf,             // link-color
+    #fafafa,                      // bg-color
+    #333333,                      // primary-text-color
+    rgba(0,0,0,0.55),             // secondary-text-color (55%)
+    #3548cf,                      // link-color
     #e0f2fe,                      // highlight
-    rgba(0,0,0,0.90),             // heading-color
-    rgb(175, 184, 193),           // code-accent
+    #1a1a1a,                      // heading-color
+    #afb8c1,                      // code-accent
     #24292f                       // code-text
   );
 }
@@ -108,7 +107,7 @@ html { height: 100%; }
 body {
   font-family: monospace;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.65;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
@@ -134,7 +133,7 @@ body {
   opacity: 0.6;
   line-height: 1.6;
   margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 { 
@@ -239,7 +238,7 @@ article header {
 
 body[a] article header,
 body[a] article .post-content {
-  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", Roboto, "Segoe UI", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
 
   h2 { font-size: 1.5em; }
   h3 { font-size: 1.25em; }
@@ -344,6 +343,13 @@ body.about-page article a {
   &.visible { display: block; }
   &:hover { opacity: 0.85; }
   svg { display: block; width: 16px; height: 16px; }
+}
+
+// -------------- COMMENTS -------------- //
+.utterances {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 // -------------- GITHUB CODE HEADER -------------- //

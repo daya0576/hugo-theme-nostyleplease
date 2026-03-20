@@ -5,3 +5,35 @@
         crossorigin="anonymous"
         async>
 </script>
+
+<script>
+  function utterancesTheme() {
+    return window.matchMedia('(prefers-color-scheme: light)').matches
+      ? 'github-light'
+      : 'github-dark';
+  }
+
+  function setUtterancesTheme(theme) {
+    const iframe = document.querySelector('.utterances-frame');
+    if (iframe) {
+      iframe.contentWindow.postMessage(
+        { type: 'set-theme', theme },
+        'https://utteranc.es'
+      );
+    }
+  }
+
+  // Apply theme once iframe is ready
+  window.addEventListener('message', function handler(e) {
+    if (e.origin !== 'https://utteranc.es') return;
+    if (e.data && e.data.type === 'resize') {
+      setUtterancesTheme(utterancesTheme());
+      window.removeEventListener('message', handler);
+    }
+  });
+
+  // Follow system theme changes
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+    setUtterancesTheme(e.matches ? 'github-light' : 'github-dark');
+  });
+</script>
