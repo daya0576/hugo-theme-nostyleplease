@@ -11,6 +11,8 @@
 
   h1, h2, h3, h4, h5, h6 { color: $--heading-color; }
 
+  .page-content > div > a { color: $--heading-color; }
+
   details {
     border: thin solid $--primary-text-color;
     padding: 1rem;
@@ -107,7 +109,7 @@ html { height: 100%; }
 body {
   font-family: monospace;
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
@@ -116,15 +118,6 @@ body {
   nav a { margin-right: 8px; }
 
   article details { margin-top: 1rem; }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 15px;
-    ul {
-      padding-inline-start: 30px;
-    }
-  }
 }
 
 .post-header-date {
@@ -136,15 +129,6 @@ body {
   margin-bottom: 1.5rem;
 }
 
-h1, h2, h3, h4, h5, h6 { 
-  margin-bottom: 0.85rem;
-  line-height: 1.35;
-}
-
-h1 { margin-top: 2.5rem; }
-h2 { margin-top: 2rem; }
-h3 { margin-top: 1.5rem; }
-h4, h5, h6 { margin-top: 1.25rem; }
 
 hr {
   margin: 2rem 0;
@@ -155,13 +139,11 @@ hr {
   &:after { content: attr(data-content) '/////' }
 }
 
-p { margin: 1rem 0; }
-
 li:not(article li) { margin: 0.3rem 0; }
 
 .w {
   max-width: 740px;
-  padding: 1.5rem;
+  padding: 20px;
   margin: 0 auto;
 }
 
@@ -169,12 +151,14 @@ pre {
   padding: 1.2em;
   overflow-x: auto;
   border-radius: 6px;
-  font-size: 85%;
+  // font-size: 85%;
   -webkit-text-size-adjust: 100%;
 }
 
 @media (max-width: 768px) {
   pre { font-size: 75%; }
+
+  article h1 { font-size: 1.5rem; }
 }
 
 table { width: 100%; }
@@ -227,21 +211,37 @@ figcaption {
   max-width: 600px;
 }
 
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+
+  &::-webkit-details-marker { display: none; }
+  &::marker { display: none; }
+
+  &::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 0.4em;
+    transition: transform 0.2s;
+  }
+}
+
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+
 article header {
   margin-top: 2rem;
 
   h1 {
-    margin-top: 0.25rem;
     margin-bottom: 0.25rem;
   }
 }
 
 body[a] article header,
 body[a] article .post-content {
-  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
-
-  h2 { font-size: 1.5em; }
-  h3 { font-size: 1.25em; }
 
   a {
     color: inherit;
@@ -261,11 +261,7 @@ body[a] article .post-content {
   p + ul, p + ol {
     margin-top: -0.5rem;
   }
-
-  h1 { margin-top: 1.5rem; }
-  h2 { margin-top: 1.8rem; }
-  h3 { margin-top: 1.3rem; }
-
+  
   pre {
     margin: 1.5rem 0;
   }
@@ -323,6 +319,11 @@ body[a] article .post-content {
 body.about-page article a {
   color: inherit;
   text-decoration-color: rgba(128, 128, 128, 0.4);
+}
+
+pre.about-qa {
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 // -------------- RAIN TOGGLE BUTTON -------------- //
