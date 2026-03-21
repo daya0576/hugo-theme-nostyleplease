@@ -133,7 +133,7 @@ body {
 .post-header-date {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  opacity: 0.75;
+  opacity: 0.85;
   line-height: 1.6;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
@@ -214,6 +214,11 @@ figcaption {
 }
 
 // -------------- THEME CUSTOMIZE -------------- //
+body[a] article header,
+body[a] article .post-content {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", Roboto, "Segoe UI", sans-serif;
+}
+
 .video-shortcode {
   max-height: 600px;
   max-width: 600px;
