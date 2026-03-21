@@ -2,13 +2,13 @@
 <div>
   <hr />
   <h4>Read more:</h4>
-  <ol class="list-group">
+  <ul class="list-group">
     {{ range $num,$post := (index .Site.Taxonomies.series (index .Params.series
-    0 | urlize)).Pages.ByTitle.Reverse }}
+    0 | urlize)).Pages.ByDate.Reverse }}
     <li class="list-group-item">
       <a href="{{$post.RelPermalink}}"> {{ $post.Params.title}} </a>
     </li>
     {{end}}
-  </ol>
+  </ul>
 </div>
 {{end}}
