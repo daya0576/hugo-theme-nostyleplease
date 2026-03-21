@@ -1,6 +1,4 @@
-{{ $headings := findRE "<h[1-6][^>]*id=" .Content }}
-{{ $headingCount := len $headings }}
-{{ if or (eq .Params.toc true) (gt $headingCount 8) }}
+{{ if eq .Params.toc true }}
 <nav class="floating-toc" id="floating-toc">
   {{ .TableOfContents }}
 </nav>
