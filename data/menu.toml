@@ -19,7 +19,7 @@ title = "编程"
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/编程/"
-  categories = ["PYTHON", "JAVA", "SRE", "编程", "Dev"]
+  categories = ["PYTHON", "JAVA", "SRE", "编程", "Dev", "TECH"]
 
 
 [[entries]]
