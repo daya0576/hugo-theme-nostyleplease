@@ -145,6 +145,8 @@ hr {
 
   &:before { content: '/////' }
   &:after { content: attr(data-content) '/////' }
+
+  font-family: monospace;
 }
 
 li:not(article li) { margin: 0.3rem 0; }
@@ -248,12 +250,6 @@ article header {
 
 body[a] article header,
 body[a] article .post-content {
-
-  li { margin: 0.1rem 0; }
-
-  p + ul, p + ol {
-    margin-top: -0.5rem;
-  }
   
   pre {
     margin: 1.5rem 0;
