@@ -3,7 +3,7 @@
     
     {{- partial "head.html" . -}}
     
-    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}">
+    <body a="{{ $.Site.Params.theme_config.appearance | default "auto" }}"{{ if eq .Kind "page" }} class="post-page"{{ end }}>
         <main class="page-content" aria-label="Content">
             <div class="w">
                 {{- block "main" . }}{{- end }}
