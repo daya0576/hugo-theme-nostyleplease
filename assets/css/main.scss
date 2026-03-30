@@ -253,6 +253,14 @@ body[a] article .post-content {
   }
 }
 
+// -------------- HEADING ANCHOR -------------- //
+h1, h2, h3, h4, h5, h6 {
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
+
 // -------------- FLOATING TOC -------------- //
 .floating-toc {
   position: fixed;
