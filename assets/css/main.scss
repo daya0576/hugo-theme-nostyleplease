@@ -61,7 +61,7 @@
   }
 }
 
-// Text hierarchy: Primary (~73%), Secondary (~50%)
+// Text hierarchy: Primary (~82%), Secondary (~55%)
 @mixin dark-appearance {
   @include theme(
     #121212,                      // bg-color
@@ -243,13 +243,23 @@ article header {
 
 body[a] article header,
 body[a] article .post-content {
-  
   pre {
     margin: 1.5rem 0;
   }
 
   img {
     margin: 0.5rem auto;
+  }
+}
+
+// -------------- HEADING + P SPACING -------------- //
+body[a] article .post-content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.2rem;
+    margin-top: 1.5rem;
+  }
+  h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+    margin-top: 0.5rem;
   }
 }
 
