@@ -65,11 +65,11 @@
 @mixin dark-appearance {
   @include theme(
     #121212,                      // bg-color
-    rgba(255,255,255,0.82),       // primary-text-color (82%)
+    #d4d4d4,                      // primary-text-color (warm neutral, less glare)
     rgba(255,255,255,0.55),       // secondary-text-color (55%)
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    rgba(255,255,255,0.92),       // heading-color
+    #ededed,                      // heading-color
     rgb(110, 118, 129),           // code-accent
     #e6edf3                       // code-text
   );
