@@ -1,14 +1,16 @@
-{{ if .Params.series }}
-<div>
-  <hr />
-  <h4>Read more:</h4>
-  <ul class="list-group">
-    {{ range $num,$post := (index .Site.Taxonomies.series (index .Params.series
-    0 | urlize)).Pages.ByDate.Reverse }}
-    <li class="list-group-item">
-      <a href="{{$post.RelPermalink}}"> {{ $post.Params.title}} </a>
-    </li>
-    {{end}}
+{{ with .Params.series }}
+  {{ $series := index $.Site.Taxonomies.series (index . 0 | urlize) }}
+  {{ with $series }}
+    {{ $posts := .Pages.ByDate.Reverse }}
+    {{ if gt (len $posts) 0 }}
+<section class="read-more" aria-labelledby="read-more-title">
+  <h2 id="read-more-title">Read more</h2>
+  <ul>
+    {{ range $posts }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
   </ul>
-</div>
-{{end}}
+</section>
+    {{ end }}
+  {{ end }}
+{{ end }}
