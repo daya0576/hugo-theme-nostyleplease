@@ -9,6 +9,8 @@
     &:hover { text-decoration: underline; }
   }
 
+  .copy-md { color: $--link-color; }
+
   h1, h2, h3, h4, h5, h6 { color: $--heading-color; }
 
   details {
@@ -366,7 +368,7 @@ pre.about-qa {
 
 // -------------- COMMENTS -------------- //
 .utterances {
-  margin-top: 4rem;
+  margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(128, 128, 128, 0.2);
 }
@@ -414,4 +416,28 @@ body article .post-content .github-code-header {
 .github-code-header + .highlight pre {
   border-radius: 0 0 6px 6px !important;
   margin-top: 0 !important;
+}
+
+// Post markdown actions (copy as / view markdown) — bottom-right of article
+.post-tagged {
+  margin-top: 2.5rem;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.post-md-actions {
+  margin-top: 0.25rem;
+  text-align: right;
+  font-size: 0.85rem;
+
+  .copy-md {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
 }
