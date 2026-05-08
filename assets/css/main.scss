@@ -67,24 +67,24 @@
 @mixin dark-appearance {
   @include theme(
     #121212,                      // bg-color
-    #d4d4d4,                      // primary-text-color (warm neutral, less glare)
+    #bdbdbd,                      // primary-text-color (~74%, dimmer for less glare)
     rgba(255,255,255,0.55),       // secondary-text-color (55%)
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    #ededed,                      // heading-color
+    #dcdcdc,                      // heading-color (~86%, slightly brighter than body for hierarchy)
     rgb(110, 118, 129),           // code-accent
-    #e6edf3                       // code-text
+    #d4d4d4                       // code-text (~83%, below heading to avoid out-shining it)
   );
 }
 
 @mixin light-appearance {
   @include theme(
-    #fafafa,                      // bg-color
-    #000000,                      // primary-text-color
+    #f5f5f5,                      // bg-color (~96%, off-white to reduce glare)
+    #1f1f1f,                      // primary-text-color (~12%, softened from pure black)
     rgba(0,0,0,0.55),             // secondary-text-color (55%)
     #3548cf,                      // link-color
     #e0f2fe,                      // highlight
-    #000000,                      // heading-color
+    #0a0a0a,                      // heading-color (~4%, slightly darker than body for hierarchy)
     #afb8c1,                      // code-accent
     #24292f                       // code-text
   );
