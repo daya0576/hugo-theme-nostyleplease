@@ -380,6 +380,28 @@ pre.about-qa {
   word-break: break-word;
 }
 
+.support-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1.5rem;
+}
+
+body.about-page article a.support-button {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+body.about-page article a.support-button:hover {
+  text-decoration: none;
+  opacity: 0.75;
+}
+
 // -------------- RAIN TOGGLE BUTTON -------------- //
 .rain-toggle {
   position: fixed;
