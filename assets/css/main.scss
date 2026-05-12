@@ -126,11 +126,10 @@ body {
 .post-meta-bottom {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.35rem;
   margin-top: 2.5rem;
-  padding: 2rem 0;
-  text-align: center;
+  text-align: right;
   font-size: 0.85rem;
 }
 
@@ -480,18 +479,14 @@ body article .post-content .github-code-header {
   margin: 0;
 }
 
-.post-md-actions,
-.post-share-action {
+.post-md-actions {
+  margin-top: 0.25rem;
+  text-align: right;
   font-size: 0.85rem;
 }
 
-.post-md-actions {
-  margin-top: 0.25rem;
-  text-align: center;
-}
-
 .post-md-actions .copy-md,
-.post-share-action {
+.post-md-actions .share-post {
   border: none;
   padding: 0;
   background: none;
@@ -501,8 +496,4 @@ body article .post-content .github-code-header {
   text-decoration: none;
 
   &:hover { text-decoration: underline; }
-}
-
-.post-share-action {
-  align-self: flex-end;
 }
