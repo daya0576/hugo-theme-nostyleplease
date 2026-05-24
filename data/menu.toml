@@ -15,7 +15,7 @@
 title = "编程"
 
   [entries.post_list]
-  limit = 6
+  limit = 10
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/编程/"
@@ -26,29 +26,11 @@ title = "编程"
 title = "生活"
 
   [entries.post_list]
-  limit = 6
+  limit = 10
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/生活/"
   categories = ["个人相关", "独立开发", "智能家居", "育儿", "读书", "派派"]
-
-
-[[entries]]
-title = "关注我"
-entries = [
-    { title = "GitHub - 开源项目和代码", url="https://github.com/daya0576" },
-    { title = "Instagram - 生活记录", url="https://instagram.com/daya0576" },
-    { title = "YouTube - 乒乓视频", url="https://www.youtube.com/@daya0576" },
-    { title = "LinkedIn - 职业档案", url="https://www.linkedin.com/in/henry-zhu-181191182/" },
-  ]
-
-
-[[entries]]
-title = "支持我"
-entries = [
-    { title = "☕ Buy me a coffee", url="https://buymeacoffee.com/henryzhu" },
-    { title = "💖 GitHub Sponsor", url="https://github.com/sponsors/daya0576" },
-  ]
 
 
 [[entries]]
