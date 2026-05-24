@@ -1,20 +1,25 @@
 {{ define "main" }}
 {{ partial "back_link.html" .}}
 
-<h1>分类/{{ .Title }}</h1>
+<h1>{{ .Title }}</h1>
 
 {{ .Content }}
 
-<!-- divide post list by year  -->
-{{ range .Pages.GroupByDate "2006" }}
+{{ if .Data.Terms }}
+<ul>
+{{ range .Data.Terms.ByCount }}
+  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span>({{ .Count }})</span></li>
+{{ end }}
+</ul>
+{{ else }}
+{{ range .Pages.GroupByDate "2006" "desc" }}
 <h2>{{ .Key }}</h2>
 <ul>
-{{ range .Pages }}
-    <li><span>{{ .Date.Format "01-02" }}</span> 
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+{{ range .Pages.ByDate.Reverse }}
+  <li><span>{{ .Date.Format "01-02" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 {{ end }}
 </ul>
 {{ end }}
-
+{{ end }}
 
 {{ end }}

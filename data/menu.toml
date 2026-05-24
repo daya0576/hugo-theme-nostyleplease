@@ -15,7 +15,7 @@
 title = "编程"
 
   [entries.post_list]
-  limit = 10
+  limit = 8
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/编程/"
@@ -26,7 +26,7 @@ title = "编程"
 title = "生活"
 
   [entries.post_list]
-  limit = 10
+  limit = 8
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/生活/"
