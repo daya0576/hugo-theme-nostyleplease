@@ -79,14 +79,14 @@
 
 @mixin light-appearance {
   @include theme(
-    #f5f5f5,                      // bg-color (~96%, off-white to reduce glare)
-    #1f1f1f,                      // primary-text-color (~12%, softened from pure black)
-    rgba(0,0,0,0.55),             // secondary-text-color (55%)
-    #3548cf,                      // link-color
-    #e0f2fe,                      // highlight
-    #0a0a0a,                      // heading-color (~4%, slightly darker than body for hierarchy)
-    #afb8c1,                      // code-accent
-    #24292f                       // code-text
+    #fff,                         // bg-color (pure white, no-style-please original)
+    #000,                         // primary-text-color (pure black)
+    rgba(0,0,0,0.6),              // secondary-text-color
+    #00e,                         // link-color (classic web blue, no-style-please original)
+    #ff0,                         // highlight (yellow, original :target style)
+    #000,                         // heading-color (pure black)
+    #bbb,                         // code-accent
+    #000                          // code-text
   );
 }
 
@@ -121,6 +121,23 @@ body {
   nav a { margin-right: 8px; }
 
   article details { margin-top: 1rem; }
+}
+
+.theme-toggle {
+  display: block;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1;
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.85; }
 }
 
 .post-meta-bottom {
