@@ -1,7 +1,22 @@
 {{- $posts := "" -}}
 
 {{- if .categories -}}
-    {{- $posts = (where site.RegularPages "Params.categories" "intersect" .categories) -}}
+    {{- $wantedCategories := slice -}}
+    {{- range .categories -}}
+        {{- $wantedCategories = $wantedCategories | append (lower .) -}}
+    {{- end -}}
+    {{- $posts = slice -}}
+    {{- range site.RegularPages -}}
+        {{- $pageCategories := slice -}}
+        {{- with .Params.categories -}}
+            {{- range . -}}
+                {{- $pageCategories = $pageCategories | append (lower .) -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if intersect $pageCategories $wantedCategories -}}
+            {{- $posts = $posts | append . -}}
+        {{- end -}}
+    {{- end -}}
 {{- else -}}
     {{- if (eq .context.Kind "taxonomy") -}}
         {{- $posts = .context.Pages -}}
