@@ -272,9 +272,20 @@ img {
   border-radius: 5px;
 }
 
+figure {
+  margin: 1em 0;
+}
+
 figcaption {
   text-align: center;
   opacity: 0.5;
+  margin-top: 0.3em;
+  font-size: 0.85em;
+  line-height: 1.2;
+
+  p {
+    margin: 0;
+  }
 }
 
 // -------------- THEME CUSTOMIZE -------------- //
