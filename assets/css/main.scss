@@ -117,7 +117,8 @@ body {
   // Apply the site-wide 90% scale in CSS from first paint to avoid JS-induced flash/jump.
   zoom: var(--page-scale);
   font-family: monospace, 'SF Mono', Monaco, 'Cascadia Mono', 'Cascadia Code', Consolas, 'Liberation Mono', 'Microsoft YaHei', monospace;
-  font-size: 16px;
+  // Fluid font-size: ~15px on mobile, scales up to 18px on wide screens (viking-astro style)
+  font-size: clamp(15px, calc(14px + 0.35vw), 16px);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: auto;
   -webkit-text-size-adjust: 100%;
@@ -359,6 +360,7 @@ body[a] article .post-content {
 // -------------- HEADING + P SPACING -------------- //
 body[a] article .post-content {
   h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;            // compact heading line-height (viking-astro leading-tight)
     margin-bottom: 0.2rem;
     margin-top: 1.5rem;
   }
