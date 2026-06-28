@@ -5,21 +5,34 @@
 
 {{ .Content }}
 
-{{ if .Data.Terms }}
-<ul>
-{{ range .Data.Terms.ByCount }}
-  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span>({{ .Count }})</span></li>
-{{ end }}
-</ul>
-{{ else }}
-{{ range .Pages.GroupByDate "2006" "desc" }}
-<h2>{{ .Key }}</h2>
-<ul>
-{{ range .Pages.ByDate.Reverse }}
-  <li><span>{{ .Date.Format "01-02" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-{{ end }}
-</ul>
-{{ end }}
-{{ end }}
+{{- $groupCategories := slice -}}
+{{- range (index hugo.Data "menu").entries -}}
+  {{- if or (eq .title $.Title) (eq (.post_list.show_more_url | relURL) $.RelPermalink) -}}
+    {{- range .post_list.categories -}}
+      {{- $groupCategories = $groupCategories | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $groupCategories -}}
+  {{ partial "post_list.html" (dict "context" . "categories" $groupCategories "group_by_year" true)}}
+{{- else if gt (len (.Data.Terms | default dict)) 0 -}}
+  <ul class="category-list">
+  {{- range .Data.Terms.ByCount }}
+    {{- if gt .Count 0 -}}
+      <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> <span>({{ .Count }})</span></li>
+    {{- end -}}
+  {{- end }}
+  </ul>
+{{- else -}}
+  {{ range .Pages.GroupByDate "2006" "desc" }}
+  <h2>{{ .Key }}</h2>
+  <ul>
+  {{ range .Pages.ByDate.Reverse }}
+    <li><span>{{ .Date.Format "01-02" }}</span> <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+  </ul>
+  {{ end }}
+{{- end -}}
 
 {{ end }}

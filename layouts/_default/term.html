@@ -3,5 +3,15 @@
 <h1>{{ .Title }}</h1>
 
 {{ .Content }}
-{{ partial "post_list.html" (dict "context" .)}}
+
+{{- $categories := slice -}}
+{{- range (index hugo.Data "menu").entries -}}
+  {{- if and .post_list.categories (or (eq .title $.Title) (eq (.post_list.show_more_url | relURL) $.RelPermalink)) -}}
+    {{- range .post_list.categories -}}
+      {{- $categories = $categories | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{ partial "post_list.html" (dict "context" . "categories" $categories)}}
 {{ end }}

@@ -19,7 +19,7 @@ title = "编程"
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/编程/"
-  categories = ["PYTHON", "JAVA", "SRE", "编程", "Dev", "TECH"]
+  categories = ["PYTHON", "JAVA", "SRE", "编程", "Dev", "TECH", "AI", "APPLE", "硬件", "Pi", "Python Behind the Scenes", "开源", "OUTAGE", "奇技淫巧"]
 
 
 [[entries]]
@@ -30,7 +30,7 @@ title = "生活"
   show_more = true
   show_more_text = "更多.."
   show_more_url = "/categories/生活/"
-  categories = ["个人相关", "独立开发", "智能家居", "育儿", "读书", "派派"]
+  categories = ["个人相关", "独立开发", "智能家居", "育儿", "读书", "派派", "CAREER"]
 
 
 [[entries]]
