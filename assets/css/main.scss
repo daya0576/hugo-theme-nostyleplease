@@ -348,10 +348,6 @@ article header {
 
 body[a] article header,
 body[a] article .post-content {
-  pre {
-    margin: 1.5rem 0;
-  }
-
   img {
     margin: 0.5rem auto;
   }
@@ -493,7 +489,7 @@ body article .post-content .github-code-header {
   font-size: 0.8em;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   border-radius: 6px 6px 0 0;
-  margin-bottom: 0;
+  margin-bottom: 0 !important; // stay glued to the code block below it
 
   a {
     text-decoration: none !important;
