@@ -260,8 +260,8 @@ code.has-jax {
 blockquote {
   border-left: 4px solid rgba(128, 128, 128, 0.4);
   padding-left: 1rem;
-  margin: 1.5rem 0 0.5rem 0;
-  opacity: 0.65;
+  margin: 1.5rem 0 1rem 0;
+  opacity: 0.75;
 
   p { margin: 0; }
 }
@@ -342,6 +342,10 @@ article header {
   margin-top: 2rem;
 
   h1 {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     margin-bottom: 0.25rem;
   }
 }
@@ -355,13 +359,29 @@ body[a] article .post-content {
 
 // -------------- HEADING + P SPACING -------------- //
 body[a] article .post-content {
-  h1, h2, h3, h4, h5, h6 {
-    line-height: 1.25;            // compact heading line-height (viking-astro leading-tight)
-    margin-bottom: 0.2rem;
-    margin-top: 1.5rem;
+  line-height: 1.85;
+
+  p {
+    margin: 0 0 1rem;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
+
   h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  ul, ol {
+    padding-left: 1.5rem;
+    li { margin: 0.45rem 0; }
   }
 }
 
