@@ -75,27 +75,27 @@
 // Text hierarchy: Primary (~82%), Secondary (~55%)
 @mixin dark-appearance {
   @include theme(
-    #121212,                      // bg-color
-    #bdbdbd,                      // primary-text-color (~74%, dimmer for less glare)
-    rgba(255,255,255,0.55),       // secondary-text-color (55%)
+    #121212,                      // bg-color (Reeder-style dark)
+    #c8c8c0,                      // primary-text-color (warm gray, comfortable contrast)
+    rgba(255,255,255,0.42),       // secondary-text-color
     #6da6ff,                      // link-color
     #2d3748,                      // highlight
-    #dcdcdc,                      // heading-color (~86%, slightly brighter than body for hierarchy)
+    #e0e0d8,                      // heading-color (slightly brighter than body for hierarchy)
     rgb(110, 118, 129),           // code-accent
-    #d4d4d4                       // code-text (~83%, below heading to avoid out-shining it)
+    #d4d4cc                       // code-text
   );
 }
 
 @mixin light-appearance {
   @include theme(
-    #fff,                         // bg-color (pure white, no-style-please original)
-    #000,                         // primary-text-color (pure black)
-    rgba(0,0,0,0.6),              // secondary-text-color
-    #00e,                         // link-color (classic web blue, no-style-please original)
-    #ff0,                         // highlight (yellow, original :target style)
-    #000,                         // heading-color (pure black)
+    #fafafa,                      // bg-color (soft white, easier on eyes)
+    #1a1a1a,                      // primary-text-color (near-black, softer than pure)
+    rgba(0,0,0,0.55),             // secondary-text-color
+    #0057d8,                      // link-color (modern blue, less aggressive than #00e)
+    rgba(255, 214, 0, 0.4),       // highlight (muted yellow)
+    #111,                         // heading-color
     #bbb,                         // code-accent
-    #000                          // code-text
+    #1a1a1a                       // code-text
   );
 }
 
@@ -191,8 +191,9 @@ body {
   font-size: 0.9rem;
 
   h2 {
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.5rem;
     font-size: inherit;
+    font-weight: 500;
     line-height: 1.4;
   }
 
@@ -202,7 +203,7 @@ body {
   }
 
   li {
-    margin: 0.35rem 0;
+    margin: 0.25rem 0;
   }
 }
 
@@ -293,6 +294,10 @@ figcaption {
 body[a] article header,
 body[a] article .post-content {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+
+  img {
+    margin: 0.5rem auto;
+  }
 }
 
 .video-shortcode {
@@ -350,13 +355,6 @@ article header {
   }
 }
 
-body[a] article header,
-body[a] article .post-content {
-  img {
-    margin: 0.5rem auto;
-  }
-}
-
 // -------------- HEADING + P SPACING -------------- //
 body[a] article .post-content {
   line-height: 1.85;
@@ -368,7 +366,7 @@ body[a] article .post-content {
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.25;
     font-weight: 600;
-    margin-bottom: 0.3rem;
+    margin-bottom: 1rem;
     margin-top: 2rem;
   }
 
@@ -381,7 +379,7 @@ body[a] article .post-content {
 
   ul, ol {
     padding-left: 1.5rem;
-    li { margin: 0.45rem 0; }
+    li { margin: 0.25rem 0; }
   }
 }
 
@@ -427,7 +425,7 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     padding: 0.1rem 0;
     text-decoration: none !important;
-    transition: all 0.2s;
+    transition: color 0.2s;
   }
 }
 
@@ -509,7 +507,7 @@ body article .post-content .github-code-header {
   font-size: 0.8em;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   border-radius: 6px 6px 0 0;
-  margin-bottom: 0 !important; // stay glued to the code block below it
+  margin-bottom: 0 !important;
 
   a {
     text-decoration: none !important;
