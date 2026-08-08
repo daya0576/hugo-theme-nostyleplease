@@ -393,12 +393,13 @@ h1, h2, h3, h4, h5, h6 {
 
 // -------------- FLOATING TOC -------------- //
 .floating-toc {
+  --toc-gap: 2rem;
   position: fixed;
   top: 200px;
-  left: calc(50% + 395px);
+  left: calc(50% + 360px + var(--toc-gap));
   min-width: 150px;
   max-width: 300px;
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: 0.5rem 0 0.5rem var(--toc-gap);
   font-size: 0.85em;
   line-height: 1.4;
   max-height: calc(100vh - 240px);
@@ -407,13 +408,16 @@ h1, h2, h3, h4, h5, h6 {
 
   &::-webkit-scrollbar { display: none; }
   
-  ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    
+  #TableOfContents {
     ul {
-      padding-left: 1rem;
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    // Indent real child sections, but not Hugo's empty level wrappers.
+    li > a + ul {
+      padding-left: 0.5rem;
     }
   }
   
