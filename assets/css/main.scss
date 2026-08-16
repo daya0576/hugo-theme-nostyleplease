@@ -357,29 +357,30 @@ article header {
 
 // -------------- HEADING + P SPACING -------------- //
 body[a] article .post-content {
-  line-height: 1.85;
+  line-height: 1.72;
 
   p {
-    margin: 0 0 1rem;
+    margin: 0 0 0.9em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    line-height: 1.25;
+    line-height: 1.3;
     font-weight: 600;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
+    margin-bottom: 0.65em;
+    margin-top: 1.9rem;
   }
 
   h2 { font-size: 1.3rem; }
   h3 { font-size: 1.1rem; }
 
-  h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-    margin-top: 0.4rem;
-  }
-
   ul, ol {
-    padding-left: 1.5rem;
-    li { margin: 0.25rem 0; }
+    padding-left: 1.4rem;
+    margin: 0.35em 0 0.95em;
+    li { margin: 0.35em 0; }
+
+    ul, ol {
+      margin: 0.35em 0 0;
+    }
   }
 }
 
