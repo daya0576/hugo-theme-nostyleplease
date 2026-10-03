@@ -1,16 +1,16 @@
-// GitHub palettes from Hugo/Chroma; identical token declarations grouped.
+// GitHub syntax hues from Hugo/Chroma; reading surfaces and base text softened.
 // Source: hugo gen chromastyles --style=github / --style=github-dark
-// Light surfaces use Primer's cool gray; dark highlights use a translucent fill.
+// Shared theme tokens keep code surfaces and text aligned with the page.
 @mixin syntax-github {
   pre:has(> code), .chroma {
-    color: #1f2328;
-    background-color: #f6f8fa;
+    color: var(--heading-color);
+    background-color: var(--surface-color);
   }
 
   .github-code-header {
-    background-color: #f6f8fa;
-    border-bottom-color: rgba(128, 128, 128, 0.2);
-    a { color: #1f2328 !important; }
+    background-color: var(--surface-color);
+    border-bottom-color: var(--border-color);
+    a { color: var(--heading-color) !important; }
   }
 
   .chroma {
@@ -18,7 +18,7 @@
     .hl { background-color: #ddf4ff; }
     .err { color: #f6f8fa; background-color: #82071e; }
     .k, .kc, .kd, .kn, .kp, .kr, .kt { color: #cf222e; }
-    .na, .nc, .nx, .p, .ge, .go { color: #1f2328; }
+    .na, .nc, .nx, .p, .ge, .go { color: var(--heading-color); }
     .no, .nd, .nt, .m, .mb, .mf, .mh, .mi, .il, .mo, .o, .ow, .or { color: #0550ae; }
     .ni, .nb, .nf, .fm { color: #6639ba; }
     .nl { color: #900; font-weight: bold; }
@@ -37,14 +37,14 @@
 
 @mixin syntax-github-dark {
   pre:has(> code), .chroma {
-    color: #e6edf3;
+    color: var(--text-color);
     background-color: #0d1117;
   }
 
   .github-code-header {
     background-color: #0d1117;
     border-bottom-color: rgba(128, 128, 128, 0.2);
-    a { color: #e6edf3 !important; }
+    a { color: var(--text-color) !important; }
   }
 
   .chroma {
@@ -57,7 +57,7 @@
     .no, .nl, .gh { color: #79c0ff; font-weight: bold; }
     .nd, .nf, .fm { color: #d2a8ff; font-weight: bold; }
     .ni { color: #ffa657; }
-    .nx { color: #e6edf3; }
+    .nx { color: var(--text-color); }
     .nt { color: #7ee787; }
     .l, .s, .sb, .sc, .sd, .s2, .si, .sx, .s1, .ss, .m, .mb, .mf, .mh, .mi, .il, .mo { color: #a5d6ff; }
     .o, .ow, .or { color: #ff7b72; font-weight: bold; }
@@ -78,8 +78,10 @@
 // Primer-inspired reading palette. Solid muted text avoids compounded opacity
 // in metadata, captions and quotes; shared tokens keep secondary UI consistent.
 @mixin theme($bg, $text, $muted, $heading, $accent, $surface, $border, $mark-bg, $mark-text, $selection) {
+  --text-color: #{$text};
   --text-muted: #{$muted};
   --heading-color: #{$heading};
+  --surface-color: #{$surface};
   --border-color: #{$border};
 
   background-color: $bg;
@@ -101,11 +103,11 @@
 
   h1, h2, h3, h4, h5, h6 { color: $heading; }
 
-  details, .toc, table, th, td { border: 1px solid $border; }
+  table, th, td { border: 1px solid $border; }
 
   details, .toc {
+    border: 1px solid;
     padding: 1rem;
-    border-radius: 6px;
   }
 
   th { background-color: $surface; }
@@ -125,13 +127,13 @@
   }
 
   .floating-toc {
-    box-shadow: inset 1px 0 0 $border;
+    box-shadow: inset 1px 0 0 rgba($border, 0.5);
 
     a {
       color: $muted !important;
       &:hover { color: $accent !important; }
       &.active {
-        font-weight: bold !important;
+        font-weight: 500 !important;
         color: $accent !important;
       }
     }
@@ -144,14 +146,14 @@
   color-scheme: dark;
   @include theme(
     $bg: #161b22,
-    $text: #c9d1d9,
+    $text: #c2cad2,
     $muted: #919ba6,
-    $heading: #f0f6fc,
-    $accent: #79c0ff,
+    $heading: #d5dde5,
+    $accent: #85b5e5,
     $surface: #21262d,
     $border: #30363d,
     $mark-bg: #3b301b,
-    $mark-text: #f2cc60,
+    $mark-text: #dfc27a,
     $selection: #264f78
   );
   @include syntax-github-dark;
@@ -160,13 +162,13 @@
 @mixin light-appearance {
   color-scheme: light;
   @include theme(
-    $bg: #ffffff,
-    $text: #3d444d,
-    $muted: #636c76,
-    $heading: #1f2328,
-    $accent: #0969da,
-    $surface: #f6f8fa,
-    $border: #d1d9e0,
+    $bg: #f7f7f5,
+    $text: #292f36,
+    $muted: #59636e,
+    $heading: #20262d,
+    $accent: #175fa7,
+    $surface: #eeefed,
+    $border: #d8d8d4,
     $mark-bg: #fff4ce,
     $mark-text: #6b4f00,
     $selection: #ddf4ff
@@ -191,7 +193,7 @@ body[a="light"] { @include light-appearance; }
 body {
   // Apply the site-wide 90% scale in CSS from first paint to avoid JS-induced flash/jump.
   zoom: var(--page-scale);
-  font-family: monospace, 'SF Mono', Monaco, 'Cascadia Mono', 'Cascadia Code', Consolas, 'Liberation Mono', 'Microsoft YaHei', monospace;
+  font-family: monospace;
   // Fluid font-size: ~15px on mobile, scales up to 18px on wide screens (viking-astro style)
   font-size: clamp(15px, calc(14px + 0.35vw), 16px);
   text-rendering: optimizeLegibility;
@@ -315,8 +317,7 @@ body {
 .read-more {
   margin-top: 3rem;
   padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border: 1px solid;
   font-size: 0.9rem;
 
   h2 {
@@ -351,16 +352,22 @@ hr {
 
   &:before { content: '/////' }
   &:after { content: attr(data-content) '/////' }
-
-  font-family: monospace;
 }
 
 li:not(article li) { margin: 0.3rem 0; }
 
+$content-width: 720px;
+
 .w {
-  max-width: 720px;
+  max-width: $content-width;
   padding: 20px;
   margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .w {
+    padding-inline: 16px;
+  }
 }
 
 pre {
@@ -394,8 +401,8 @@ table, th, td {
   padding: 0.4rem;
 }
 
-code {
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+pre, code, .github-code-header {
+  font-family: inherit;
 }
 
 code:not(pre > code) {
@@ -446,8 +453,6 @@ figcaption {
 // -------------- THEME CUSTOMIZE -------------- //
 body[a] article header,
 body[a] article .post-content {
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-
   img {
     margin: 0.5rem auto;
   }
@@ -539,6 +544,9 @@ body[a] article .post-content {
       margin: 0.35em 0 0;
     }
   }
+
+  // Outside decimal markers need more room than bullets, especially in monospace.
+  ol { padding-left: 2.5em; }
 }
 
 // -------------- HEADING ANCHOR -------------- //
@@ -551,14 +559,15 @@ h1, h2, h3, h4, h5, h6 {
 
 // -------------- FLOATING TOC -------------- //
 .floating-toc {
-  --toc-gap: 2rem;
+  --toc-gap: 1.5rem;
   position: fixed;
   top: 200px;
-  left: calc(50% + 360px + var(--toc-gap));
+  left: calc(50% + #{$content-width * 0.5} + var(--toc-gap));
+  right: 20px;
   min-width: 150px;
   max-width: 300px;
-  padding: 0.5rem 0 0.5rem var(--toc-gap);
-  font-size: 0.85em;
+  padding: 0.5rem 0 0.5rem 1rem;
+  font-size: 0.82em;
   line-height: 1.4;
   max-height: calc(100vh - 240px);
   overflow-y: auto;
@@ -591,7 +600,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1280px) {
   .floating-toc {
     display: none;
   }
@@ -667,7 +676,6 @@ body article .post-content .github-code-header {
   align-items: center;
   padding: 0.5rem 1rem;
   font-size: 0.8em;
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid;
   margin-bottom: 0 !important;
