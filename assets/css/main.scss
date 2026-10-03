@@ -1,102 +1,177 @@
+// GitHub palettes from Hugo/Chroma; identical token declarations grouped.
+// Source: hugo gen chromastyles --style=github / --style=github-dark
+// Light surfaces use Primer's cool gray; dark highlights use a translucent fill.
+@mixin syntax-github {
+  pre:has(> code), .chroma {
+    color: #1f2328;
+    background-color: #f6f8fa;
+  }
+
+  .github-code-header {
+    background-color: #f6f8fa;
+    border-bottom-color: rgba(128, 128, 128, 0.2);
+    a { color: #1f2328 !important; }
+  }
+
+  .chroma {
+    .ln, .lnt { color: #6e7781; }
+    .hl { background-color: #ddf4ff; }
+    .err { color: #f6f8fa; background-color: #82071e; }
+    .k, .kc, .kd, .kn, .kp, .kr, .kt { color: #cf222e; }
+    .na, .nc, .nx, .p, .ge, .go { color: #1f2328; }
+    .no, .nd, .nt, .m, .mb, .mf, .mh, .mi, .il, .mo, .o, .ow, .or { color: #0550ae; }
+    .ni, .nb, .nf, .fm { color: #6639ba; }
+    .nl { color: #900; font-weight: bold; }
+    .nn { color: #24292e; }
+    .bp { color: #6a737d; }
+    .nv, .vc, .vg, .vi, .vm { color: #953800; }
+    .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1 { color: #0a3069; }
+    .ss { color: #032f62; }
+    .c, .ch, .cm, .c1, .cs, .cp, .cpf { color: #57606a; }
+    .gd { color: #82071e; background-color: #ffebe9; }
+    .gi { color: #116329; background-color: #dafbe1; }
+    .gl { text-decoration: underline; }
+    .w { color: #fff; }
+  }
+}
+
+@mixin syntax-github-dark {
+  pre:has(> code), .chroma {
+    color: #e6edf3;
+    background-color: #0d1117;
+  }
+
+  .github-code-header {
+    background-color: #0d1117;
+    border-bottom-color: rgba(128, 128, 128, 0.2);
+    a { color: #e6edf3 !important; }
+  }
+
+  .chroma {
+    .ln, .lnt { color: #8b949e; }
+    .hl { background-color: rgba(110, 118, 129, 0.2); }
+    .err { color: #f85149; }
+    .k, .kd, .kn, .kr, .kt, .nn, .gt { color: #ff7b72; }
+    .kc, .kp, .py, .nv, .vc, .vg, .vi, .vm, .ld, .sa, .dl, .se, .sh, .sr, .gu { color: #79c0ff; }
+    .nc, .ne { color: #f0883e; font-weight: bold; }
+    .no, .nl, .gh { color: #79c0ff; font-weight: bold; }
+    .nd, .nf, .fm { color: #d2a8ff; font-weight: bold; }
+    .ni { color: #ffa657; }
+    .nx { color: #e6edf3; }
+    .nt { color: #7ee787; }
+    .l, .s, .sb, .sc, .sd, .s2, .si, .sx, .s1, .ss, .m, .mb, .mf, .mh, .mi, .il, .mo { color: #a5d6ff; }
+    .o, .ow, .or { color: #ff7b72; font-weight: bold; }
+    .c, .ch, .cm, .c1 { color: #8b949e; font-style: italic; }
+    .cs, .cp, .cpf { color: #8b949e; font-weight: bold; font-style: italic; }
+    .gd { color: #ffa198; background-color: #490202; }
+    .ge { font-style: italic; }
+    .gr { color: #ffa198; }
+    .gi { color: #56d364; background-color: #0f5323; }
+    .go, .gp { color: #8b949e; }
+    .gs { font-weight: bold; }
+    .gl { text-decoration: underline; }
+    .w { color: #6e7681; }
+  }
+}
+
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--highlight, $--heading-color, $--code-accent, $--code-text) {
-  background-color: $--bg-color;
-  color: $--primary-text-color;
+// Primer-inspired reading palette. Solid muted text avoids compounded opacity
+// in metadata, captions and quotes; shared tokens keep secondary UI consistent.
+@mixin theme($bg, $text, $muted, $heading, $accent, $surface, $border, $mark-bg, $mark-text, $selection) {
+  --text-muted: #{$muted};
+  --heading-color: #{$heading};
+  --border-color: #{$border};
+
+  background-color: $bg;
+  color: $text;
 
   a {
-    color: $--link-color;
+    color: $accent;
     text-decoration: none;
+    text-underline-offset: 0.18em;
     &:hover { text-decoration: underline; }
   }
 
-  .copy-md { color: $--link-color; }
-
-  .color-scheme button.active {
-    color: $--link-color;
-  }
+  .copy-md, .color-scheme button.active { color: $accent; }
 
   .color-scheme button:hover {
-    color: $--link-color;
+    color: $accent;
     text-decoration: underline;
   }
 
-  h1, h2, h3, h4, h5, h6 { color: $--heading-color; }
+  h1, h2, h3, h4, h5, h6 { color: $heading; }
 
-  details {
-    border: thin solid $--primary-text-color;
+  details, .toc, table, th, td { border: 1px solid $border; }
+
+  details, .toc {
     padding: 1rem;
+    border-radius: 6px;
+  }
+
+  th { background-color: $surface; }
+
+  mark {
+    color: $mark-text;
+    background-color: $mark-bg;
   }
 
   *:target {
-    background: $--highlight;
-    color: $--primary-text-color;
+    background-color: rgba($accent, 0.12);
   }
 
-  table, th, td {
-    border: thin solid $--primary-text-color;
-  }
-
-  .toc {
-    border: thin solid $--primary-text-color;
-    padding: 1rem;
+  ::selection {
+    color: $heading;
+    background-color: $selection;
   }
 
   .floating-toc {
-    box-shadow: inset 1px 0 0 rgba($--primary-text-color, 0.20);
+    box-shadow: inset 1px 0 0 $border;
 
     a {
-      color: $--secondary-text-color !important;
-      &:hover {
-        color: $--heading-color !important;
-      }
+      color: $muted !important;
+      &:hover { color: $accent !important; }
       &.active {
         font-weight: bold !important;
-        color: $--heading-color !important;
+        color: $accent !important;
       }
     }
   }
 
-  // Code & syntax highlighting
-  code:not(pre > code) {
-    background-color: rgba($--code-accent, 0.22);
-  }
-
-  pre {
-    background-color: rgba($--code-accent, 0.13);
-  }
-
-  .github-code-header {
-    background-color: rgba($--code-accent, 0.25);
-    border-bottom: 1px solid rgba($--code-accent, 0.35);
-    a { color: $--code-text !important; }
-  }
+  code:not(pre > code), pre { background-color: $surface; }
 }
 
-// Text hierarchy: Primary (~82%), Secondary (~55%)
 @mixin dark-appearance {
+  color-scheme: dark;
   @include theme(
-    #121212,                      // bg-color (Reeder-style dark)
-    #c8c8c0,                      // primary-text-color (warm gray, comfortable contrast)
-    rgba(255,255,255,0.42),       // secondary-text-color
-    #6da6ff,                      // link-color
-    #2d3748,                      // highlight
-    #e0e0d8,                      // heading-color (slightly brighter than body for hierarchy)
-    rgb(110, 118, 129),           // code-accent
-    #d4d4cc                       // code-text
+    $bg: #161b22,
+    $text: #c9d1d9,
+    $muted: #919ba6,
+    $heading: #f0f6fc,
+    $accent: #79c0ff,
+    $surface: #21262d,
+    $border: #30363d,
+    $mark-bg: #3b301b,
+    $mark-text: #f2cc60,
+    $selection: #264f78
   );
+  @include syntax-github-dark;
 }
 
 @mixin light-appearance {
+  color-scheme: light;
   @include theme(
-    #fafafa,                      // bg-color (soft white, easier on eyes)
-    #1a1a1a,                      // primary-text-color (near-black, softer than pure)
-    rgba(0,0,0,0.55),             // secondary-text-color
-    #0057d8,                      // link-color (modern blue, less aggressive than #00e)
-    rgba(255, 214, 0, 0.4),       // highlight (muted yellow)
-    #111,                         // heading-color
-    #bbb,                         // code-accent
-    #1a1a1a                       // code-text
+    $bg: #ffffff,
+    $text: #3d444d,
+    $muted: #636c76,
+    $heading: #1f2328,
+    $accent: #0969da,
+    $surface: #f6f8fa,
+    $border: #d1d9e0,
+    $mark-bg: #fff4ce,
+    $mark-text: #6b4f00,
+    $selection: #ddf4ff
   );
+  @include syntax-github;
 }
 
 body[a="dark"] { @include dark-appearance; }
@@ -130,7 +205,7 @@ body {
 
   nav a { margin-right: 8px; }
 
-  article details { margin-top: 1rem; }
+  article details { margin-block: 1rem; }
 }
 
 .color-scheme {
@@ -157,7 +232,7 @@ body {
   text-align: right;
   font-size: 0.78rem;
   line-height: 1.3;
-  opacity: 0.65;
+  color: var(--text-muted);
 }
 
 .site-footer {
@@ -177,7 +252,7 @@ body {
 .post-header-date {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  opacity: 0.85;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
@@ -240,7 +315,8 @@ body {
 .read-more {
   margin-top: 3rem;
   padding: 1rem;
-  border: 1px solid;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   font-size: 0.9rem;
 
   h2 {
@@ -260,7 +336,15 @@ body {
   }
 }
 
+mark {
+  border-radius: 3px;
+  padding: 0.04em 0.18em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 hr {
+  color: var(--text-muted);
   margin: 2rem 0;
   text-align: center;
   border: 0;
@@ -285,6 +369,22 @@ pre {
   border-radius: 6px;
   font-size: 80%;
   -webkit-text-size-adjust: 100%;
+}
+
+// Shared Chroma layout; colors follow the page's light/dark/auto appearance.
+body[a] .chroma {
+  .lnlinks { text-decoration: none; color: inherit; }
+  .ln, .lnt {
+    white-space: pre;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-right: 0.4em;
+    padding: 0 0.4em;
+  }
+  .lntable { width: auto; margin: 0; padding: 0; border: 0; border-spacing: 0; }
+  .lntd { vertical-align: top; margin: 0; border: 0; padding: 0; }
+  .line { display: flex; }
+  .cl { flex: 1; }
 }
 
 table { width: 100%; }
@@ -312,10 +412,10 @@ code.has-jax {
 }
 
 blockquote {
-  border-left: 4px solid rgba(128, 128, 128, 0.4);
+  border-left: 4px solid var(--border-color);
   padding-left: 1rem;
   margin: 1.5rem 0 1rem 0;
-  opacity: 0.75;
+  color: var(--text-muted);
 
   p { margin: 0; }
 }
@@ -333,7 +433,7 @@ figure {
 
 figcaption {
   text-align: center;
-  opacity: 0.5;
+  color: var(--text-muted);
   margin-top: 0.3em;
   font-size: 0.85em;
   line-height: 1.2;
@@ -413,6 +513,8 @@ article header {
 // -------------- HEADING + P SPACING -------------- //
 body[a] article .post-content {
   line-height: 1.72;
+
+  strong { color: var(--heading-color); }
 
   p {
     margin: 0 0 0.9em;
@@ -498,7 +600,7 @@ h1, h2, h3, h4, h5, h6 {
 // -------------- ABOUT PAGE -------------- //
 body.about-page article a {
   color: inherit;
-  text-decoration-color: rgba(128, 128, 128, 0.4);
+  text-decoration-color: var(--border-color);
 }
 
 pre.about-qa {
@@ -552,7 +654,7 @@ body.about-page article a.support-button:hover {
 .utterances {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  border-top: 1px solid var(--border-color);
 }
 
 // -------------- GITHUB CODE HEADER -------------- //
@@ -567,6 +669,7 @@ body article .post-content .github-code-header {
   font-size: 0.8em;
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   border-radius: 6px 6px 0 0;
+  border-bottom: 1px solid;
   margin-bottom: 0 !important;
 
   a {
