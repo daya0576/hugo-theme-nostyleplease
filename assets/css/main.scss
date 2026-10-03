@@ -517,7 +517,10 @@ article header {
 
 // -------------- HEADING + P SPACING -------------- //
 body[a] article .post-content {
-  line-height: 1.72;
+  line-height: 1.8;
+
+  // Keep code blocks at their previous density as prose opens up.
+  pre { line-height: 1.72; }
 
   strong { color: var(--heading-color); }
 
