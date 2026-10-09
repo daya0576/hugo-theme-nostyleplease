@@ -77,7 +77,7 @@
 // -------------- THEME SWITCHER -------------- //
 // Primer-inspired reading palette. Solid muted text avoids compounded opacity
 // in metadata, captions and quotes; shared tokens keep secondary UI consistent.
-@mixin theme($bg, $text, $muted, $heading, $accent, $surface, $border, $mark-bg, $mark-text, $selection) {
+@mixin theme($bg, $text, $muted, $heading, $accent, $surface, $border, $mark-bg, $mark-text) {
   --text-color: #{$text};
   --text-muted: #{$muted};
   --heading-color: #{$heading};
@@ -121,11 +121,6 @@
     background-color: rgba($accent, 0.12);
   }
 
-  ::selection {
-    color: $heading;
-    background-color: $selection;
-  }
-
   .floating-toc {
     box-shadow: inset 1px 0 0 rgba($border, 0.5);
 
@@ -153,8 +148,7 @@
     $surface: #21262d,
     $border: #30363d,
     $mark-bg: #3b301b,
-    $mark-text: #dfc27a,
-    $selection: #264f78
+    $mark-text: #dfc27a
   );
   @include syntax-github-dark;
 }
@@ -170,8 +164,7 @@
     $surface: #eeefed,
     $border: #d8d8d4,
     $mark-bg: #fff4ce,
-    $mark-text: #6b4f00,
-    $selection: #ddf4ff
+    $mark-text: #6b4f00
   );
   @include syntax-github;
 }
