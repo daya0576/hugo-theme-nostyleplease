@@ -244,7 +244,6 @@ body {
 
 .site-footer {
   display: contents;
-  font-family: monospace;
 }
 
 
@@ -409,6 +408,7 @@ table, th, td {
 }
 
 body.home-page, .back-link, article header h1,
+.site-footer, .post-meta-bottom,
 pre, code, .github-code-header {
   font-family: monospace;
 }
