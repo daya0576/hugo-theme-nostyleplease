@@ -407,12 +407,10 @@ code.has-jax {
 }
 
 blockquote {
-  border-left: 4px solid var(--border-color);
-  padding-left: 1rem;
-  margin: 1.5rem 0 1rem 0;
+  border-left: 3px solid color-mix(in srgb, var(--text-muted) 45%, transparent);
+  padding: 0.1rem 0 0.1rem 1rem;
+  margin: 1.4rem 0 1rem;
   color: var(--text-muted);
-
-  p { margin: 0; }
 }
 
 img {
@@ -536,6 +534,16 @@ body[a] article .post-content {
 
   // Outside decimal markers need more room than bullets.
   ol { padding-left: 2.5em; }
+
+  blockquote {
+    > :first-child { margin-top: 0; }
+    > :last-child { margin-bottom: 0; }
+    strong { color: var(--text-color); }
+  }
+
+  :is(h2, h3, h4) + blockquote {
+    margin-top: 0.75rem;
+  }
 }
 
 // -------------- HEADING ANCHOR -------------- //
